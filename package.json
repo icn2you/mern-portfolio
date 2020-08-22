@@ -1,0 +1,56 @@
+{
+  "name": "mern-portfolio",
+  "version": "0.1.0",
+  "description": "Dev Portfolio of Christopher Zenner MERN-Style",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.10.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "lint": "eslint . && cd client && npm run lint",
+    "seed": "node scripts/seedDB.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "start:prod": "node server.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icn2you/mern-portfolio.git"
+  },
+  "keywords": [
+    "Christopher Zenner",
+    "developer",
+    "How may I be of service?",
+    "MERN",
+    "portfolio"
+  ],
+  "author": "Christopher B. Zenner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icn2you/mern-portfolio/issues"
+  },
+  "homepage": "https://github.com/icn2you/mern-portfolio#readme"
+}
