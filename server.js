@@ -1,6 +1,6 @@
 // Node dependencies
 const express = require('express')
-// const routes = require('./routes')
+const routes = require('./routes')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Use app routes.
-// app.use(routes)
+app.use(routes)
 
 // Connect to database.
 mongoose.connect(MONGODB_URI, {
