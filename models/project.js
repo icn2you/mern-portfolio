@@ -8,28 +8,30 @@ module.exports = (() => {
     url: { type: String, required: true },
     repo: { type: String, required: true },
     imagePath: { type: String, default: 'assets/img/laptop-blank.png' },
-    programmingLangs: [{ 
-      type: String, 
+    programmingLangs: [{
+      type: String,
       enum: [
-        'HTML', 
-        '(S)CSS', 
-        'JavaScript', 
+        'HTML',
+        '(S)CSS',
+        'JavaScript',
         'JavaScript (ES6)'],
-      required: true }],
-    technologiesUsed: [{ 
-      type: String, 
+      required: true
+    }],
+    technologiesUsed: [{
+      type: String,
       enum: [
-        'API', 
+        'API',
         'Express',
-        'Firebase', 
+        'Firebase',
         'Handlebars',
-        'jQuery', 
-        'Node', 
-        'MongoDB', 
-        'MySQL', 
+        'jQuery',
+        'Node',
+        'MongoDB',
+        'MySQL',
         'React',
         'Webpack'],
-      required: true }],
+      required: true
+    }],
     completionDate: { type: Date, default: Date.now },
     starred: { type: Boolean, default: false }
   }, { timestamps: true })
