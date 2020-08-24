@@ -33,6 +33,7 @@ module.exports = (() => {
       required: true
     }],
     completionDate: { type: Date, default: Date.now },
+    projectType: { type: String, enum: ['group', 'individual'] },
     starred: { type: Boolean, default: false }
   }, { timestamps: true })
 
