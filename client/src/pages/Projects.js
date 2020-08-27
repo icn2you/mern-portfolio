@@ -1,9 +1,12 @@
 import React from 'react'
+import { Header, Main, Footer } from '../components'
 
 const Projects = () => {
   return (
     <>
-      <h1>Hello, World!</h1>
+      <Header />
+      <Main />
+      <Footer />
     </>
   )
 }
