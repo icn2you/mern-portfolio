@@ -7,7 +7,7 @@ const NavBar = () => {
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact-me">Contact</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#">Blog</a></li>
+        {/* <li><a href="#">Blog</a></li> */}
       </ul>
     </nav>
   )
