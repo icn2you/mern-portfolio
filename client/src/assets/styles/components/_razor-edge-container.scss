@@ -1,0 +1,50 @@
+/***********************************************************************
+ Razor-edge Container Mixin
+
+ This mixin creates a `div` container with a razor (diagonal/slanted)
+ edge. 
+ 
+ Arguments:
+ $color -> container color
+ $tb-pad -> top and bottom padding inside the container (This is a 
+   single unit so the top and bottom padding will always be congruent.)
+ $lr-pad -> left and right padding inside the container (This is a 
+   single unit so the left and right padding will always be congruent.)
+ $origin -> origin of the razor edge/slant (for example: top right)
+ $skew -> degree of slant expressed as a `deg` unit (Use a negative 
+   value for a leftward slant and a positive value for a rightward 
+   slant.)
+ $razor-pos -> position of razor edge on `div` container (top/bottom)
+***********************************************************************/
+
+@mixin razor-edge(
+  $color, $tb-pad, $lr-pad, $origin, $skew, $razor-pos: bottom) {
+  $pos: after;
+
+  @if $razor-pos == top {
+    $pos: before;
+  }
+  
+  &.skewed-container {
+    background: $color;
+    box-sizing: border-box;
+    padding: $tb-pad $lr-pad;
+    position: relative;
+    width: 100%;
+  }
+
+  &.skewed-container:#{$pos} {
+    background: inherit;
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: $origin;
+    transform: skewY($skew);
+    width: 100%;
+    z-index: -1;
+  }
+}
