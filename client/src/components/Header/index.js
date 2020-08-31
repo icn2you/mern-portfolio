@@ -3,10 +3,11 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { 
   Intro, NavBar, Portrait 
 } from '../../components'
+import './style.scss'
 
 const Header = () => {
   return (
-    <header className="angled-container">
+    <header className="skewed-container">
       <Container>
         <Row>
           <Col lg={4}>

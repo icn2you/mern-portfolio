@@ -1,0 +1,9 @@
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+@use '../../assets/styles/components/razor-edge-container' as container;
+
+header {
+  @include container.razor-edge(
+    snorkel.$classic-blue, 2rem, 3rem, top right, -7deg);
+
+  margin-bottom: 15rem;
+}
