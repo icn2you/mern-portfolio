@@ -1,4 +1,14 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  08/27/2020
+File:  index.js
+Ver.:  0.1.0 20200827
+
+This script contains the NavBar React component of my developer 
+portfolio.
+***********************************************************************/
 import React from 'react'
+import './style.scss'
 
 const NavBar = () => {
   return (
