@@ -1,0 +1,42 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  08/31/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200831
+
+This SCSS specifies the layout and style for the NavBar React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+@use '../../assets/styles/components/hover-sliders' as flair;
+
+nav {
+  ul {
+    font-size: 1.5rem;
+    font-weight: 500;
+    list-style-type: none;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    padding: 0;
+
+    li {
+      display: inline-block;
+
+      a {
+        color: inherit;
+        display: inherit;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+
+        &:active, &:focus, &:hover {
+          color: white;
+          text-decoration: inherit;
+        }
+
+        @include flair.hover-sliders(snorkel.$coralessence);
+      }
+    }
+  }
+}
