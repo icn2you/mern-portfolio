@@ -1,0 +1,34 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  08/29/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200829
+
+This SCSS specifies the layout and style of the global elements of my developer portfolio.
+***********************************************************************/
+@use '../colors/pantone-ponder-palette' as ponder;
+@use '../fonts/portfolio-fonts' as fonts;
+@use '../fonts/css-tricks-fluid-type' as tricks;
+
+/***********************************************************************
+ Global Elements
+***********************************************************************/
+$max-font: 18px;
+$max-width: 1280px;
+$min-font: 15px;
+$min-width: 320px;
+$almost-black: #060909;
+$seriously-gray: #4E595F;
+$slightly-gray: #EEE;
+
+html {
+  @include tricks.fluid-type(
+    $min-width, $max-width, $min-font, $max-font);
+}
+
+body {
+  background-color: white;
+  color: ponder.$monument;
+  font-family: fonts.$sans-serif-font-stack;
+  line-height: 1.5em;
+}
