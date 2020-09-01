@@ -1,0 +1,35 @@
+/***********************************************************************
+ Hover Sliders Mixin - developed by Christopher Zenner
+
+ This mixin generates decorative lines with rounded ends that scale on hover for the specified anchor elements.
+
+ Arguments:
+ $color -> decorative line color
+ $size -> half the decorative line height (NOTE: The decorative line is 
+   constructed from a top and bottom border.)
+ $top-margin -> vertical spacing between the anchor element and the
+   decorative line
+ $scale-time -> total time for the scale effect to go from 0% to 100%
+***********************************************************************/
+
+@mixin hover-sliders($color, $size: 2px, $top-margin: 0.25em, $scale-time: 0.25s) {
+  &:after {
+    border-bottom: $size solid $color;
+    border-radius: $size * 2;
+    border-top: $size solid $color;
+    content: '';
+    display: block;
+    margin-top: $top-margin;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: -webkit-transform $scale-time ease-in-out;
+    transition: transform $scale-time ease-in-out;
+  }
+  
+  &:hover:after {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
