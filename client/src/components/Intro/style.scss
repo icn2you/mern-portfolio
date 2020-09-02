@@ -1,0 +1,28 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/01/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200901
+
+This SCSS specifies the layout and style for the Intro React component 
+of my developer portfolio.
+***********************************************************************/
+
+.name {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.25em;
+  margin: 3rem auto;
+}
+
+.pers-stmt {
+  color: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.25em;
+}
+
+.title {
+  font-family: 'Inconsolata', monospace;
+}
