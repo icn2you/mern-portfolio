@@ -1,0 +1,18 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/01/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200901
+
+This SCSS specifies the layout and style for the Portrait React 
+component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/freepik-classic-blues-palette' as blues;
+
+.portrait {
+  img {
+    border: 10px solid blues.$darkest-classic-blue;
+    border-radius: 100%;
+    width: 360px;
+  }
+}
