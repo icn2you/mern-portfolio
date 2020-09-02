@@ -15,20 +15,20 @@ import './style.scss'
 const Header = () => {
   return (
     <header className="skewed-container">
-      <Container>
+      <Container className="text-center">
         <Row className="justify-content-between">
-          <Col lg={4} className="text-center text-lg-left">
+          <Col lg={4} className="text-lg-left">
             {/* Personal Logo */}
           </Col>
-          <Col lg={8} className="text-center text-lg-right">
+          <Col lg={8} className="text-lg-right">
             <NavBar />
           </Col>
         </Row>
-        <Row>
-          <Col lg={8}>
+        <Row className="mt-3 justify-content-between">
+          <Col lg={8} className="text-lg-left">
             <Intro />
           </Col>
-          <Col lg={4}>
+          <Col lg={4} className="text-lg-right">
             <Portrait />
           </Col>
         </Row>
