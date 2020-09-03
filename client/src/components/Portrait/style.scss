@@ -9,10 +9,11 @@ component of my developer portfolio.
 ***********************************************************************/
 @use '../../assets/styles/colors/freepik-classic-blues-palette' as blues;
 
-.portrait {
+#portrait {
   img {
     border: 10px solid blues.$darkest-classic-blue;
     border-radius: 100%;
+    max-width: 720px;
     width: 360px;
   }
 }

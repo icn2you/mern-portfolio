@@ -13,7 +13,7 @@ const Portrait = () => {
   return (
     /* It is necessary for the img element to be contained within a div
        in order for the image border to render. */
-    <div className="portrait">
+    <div id="portrait">
       <img 
         src={require('../../assets/images/avatar-me-2020.png')} 
         alt="Christopher Zenner" 
