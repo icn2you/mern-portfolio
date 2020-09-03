@@ -8,21 +8,31 @@ This SCSS specifies the layout and style for the Intro React component
 of my developer portfolio.
 ***********************************************************************/
 
-.name {
-  color: white;
-  font-size: 3.5rem;
-  font-weight: 600;
-  line-height: 1.25em;
-  margin: 3rem auto;
+#intro {
+  height: 100%;
+
+  .name {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.25em;
+    margin-bottom: 3rem;
+  }
+
+  .pers-stmt {
+    color: inherit;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.25em;
+  }
+
+  .title {
+    font-family: 'Inconsolata', monospace;
+  }
 }
 
-.pers-stmt {
-  color: inherit;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.25em;
-}
-
-.title {
-  font-family: 'Inconsolata', monospace;
+@media (max-width: 991.98px) {
+  #intro {
+    padding-bottom: 3rem;
+  }
 }
