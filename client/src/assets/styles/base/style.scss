@@ -7,8 +7,10 @@ Ver.:  0.1.0 20200829
 This SCSS specifies the layout and style of the global elements of my developer portfolio.
 ***********************************************************************/
 @use '../colors/pantone-ponder-palette' as ponder;
+@use '../colors/pantone-snorkel-palette' as snorkel;
 @use '../fonts/portfolio-fonts' as fonts;
 @use '../fonts/css-tricks-fluid-type' as tricks;
+@use '../components/rounded-bottom-borders' as borders;
 
 /***********************************************************************
  Global Elements
@@ -31,4 +33,15 @@ body {
   color: ponder.$monument;
   font-family: fonts.$sans-serif-font-stack;
   line-height: 1.5em;
+}
+
+h1 {
+  @include borders.rounded-bottom-border($slightly-gray, 2px);
+
+  color: snorkel.$pirate-black;
+
+  #contact-form &:after {
+    border-top: 2px solid rgba(209, 220, 234, 0.5);
+    border-bottom: 2px solid rgba(209, 220, 234, 0.5);
+  }
 }
