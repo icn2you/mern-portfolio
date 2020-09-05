@@ -34,7 +34,8 @@ module.exports = (() => {
     }],
     completionDate: { type: Date, default: Date.now },
     projectType: { type: String, enum: ['group', 'individual'] },
-    starred: { type: Boolean, default: false }
+    starred: { type: Boolean, default: false },
+    active: { type: Boolean, default: true }
   }, { timestamps: true })
 
   return mongoose.model('Project', ProjectSchema)
