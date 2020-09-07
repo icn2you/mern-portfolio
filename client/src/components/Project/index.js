@@ -2,7 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap'
 import './style.scss'
 
-const Project = ({ title, url, repo, image, langs, tech }) => {
+const Project = ({ id, title, url, repo, image, lang, tech }) => {
   const displayAsCommaDelimitedList = (arr) => {
     return arr.map((item, i) => {
       return `${item}${
@@ -13,21 +13,21 @@ const Project = ({ title, url, repo, image, langs, tech }) => {
   }
 
   return (
-    <Col lg={3}>
-      <figure>
-        <img src={image} alt="MacBook Pro" class="img-fluid" />
+    <Col lg={3} className="text-center">
+      <figure id={id} className="photo-box">
+        <img src={image} alt="MacBook Pro" className="img-fluid" />
         <a href={url} rel="noopener noreferrer" target="_blank">
-          <img src={image} alt="MacBook Pro" class="img-fluid" />
+          <img src={image} alt="MacBook Pro" className="img-fluid top-img" />
         </a>
-        <figcaption class="text-center">{title}</figcaption>
+        <figcaption className="text-center">{title}</figcaption>
       </figure>
-      <div>
-        { langs ? displayAsCommaDelimitedList(langs) : ' ' }
+      <div className="lang">
+        { lang ? displayAsCommaDelimitedList(lang) : ' ' }
       </div>
-      <div>
+      <div className="tech">
         { tech ? displayAsCommaDelimitedList(tech) : ' ' }
       </div>
-      <div>
+      <div className="repo">
         <a href={repo} target="blank">{repo.slice(19)}</a>
       </div>
     </Col>
