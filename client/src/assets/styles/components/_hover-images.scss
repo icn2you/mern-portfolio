@@ -1,0 +1,25 @@
+/***********************************************************************
+ Hover Images Mixin - developed by Christopher Zenner
+
+ This mixin swaps the specified images on hover.
+***********************************************************************/
+
+@mixin hover-images {
+  &.photo-box {
+    display: inline-block;
+    position: relative;
+  }
+  
+  &.photo-box .top-img {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+  }
+  
+  &.photo-box:hover .top-img {
+    cursor: pointer;
+    display: inline;
+  }
+}
