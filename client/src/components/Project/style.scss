@@ -1,0 +1,37 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/06/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200906
+
+This SCSS specifies the layout and style for the Project React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/portfolio-colors' as colors;
+@use '../../assets/styles/components/hover-images' as images;
+
+figure {
+  @include images.hover-images;
+
+  &:active, &:focus, &:hover {
+    figcaption {
+      color: colors.$almost-black;
+      font-weight: 600;
+    }
+  }
+}
+
+.lang, .tech {
+  font-size: 0.8rem;
+}
+
+.repo {
+  font-size: 0.75rem;
+
+  a {
+    color: inherit;
+
+    &:active, &:focus, &:hover {
+      color: colors.$almost-black;
+    }
+  }
+}
