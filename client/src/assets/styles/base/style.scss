@@ -8,6 +8,7 @@ This SCSS specifies the layout and style of the global elements of my developer 
 ***********************************************************************/
 @use '../colors/pantone-ponder-palette' as ponder;
 @use '../colors/pantone-snorkel-palette' as snorkel;
+@use '../colors/portfolio-colors' as colors;
 @use '../fonts/portfolio-fonts' as fonts;
 @use '../fonts/css-tricks-fluid-type' as tricks;
 @use '../components/rounded-bottom-borders' as borders;
@@ -19,9 +20,6 @@ $max-font: 18px;
 $max-width: 1280px;
 $min-font: 15px;
 $min-width: 320px;
-$almost-black: #060909;
-$seriously-gray: #4E595F;
-$slightly-gray: #EEE;
 
 html {
   @include tricks.fluid-type(
@@ -36,7 +34,7 @@ body {
 }
 
 h1 {
-  @include borders.rounded-bottom-border($slightly-gray, 2px);
+  @include borders.rounded-bottom-border(colors.$slightly-gray, 2px);
 
   color: snorkel.$pirate-black;
 
