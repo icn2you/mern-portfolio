@@ -1,6 +1,11 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
 import './style.scss'
+
+// Image assets must be required in order to render properly.
+require('../../assets/images/laptop-grayscale.png')
 
 const Project = ({ id, title, url, repo, image, lang, tech }) => {
   const displayAsCommaDelimitedList = (arr) => {
@@ -28,7 +33,12 @@ const Project = ({ id, title, url, repo, image, lang, tech }) => {
         { tech ? displayAsCommaDelimitedList(tech) : ' ' }
       </div>
       <div className="repo">
-        <a href={repo} target="blank">{repo.slice(19)}</a>
+        { repo && repo !== '#0'
+          ? <a href={repo} target="blank">
+            <FontAwesomeIcon icon={faGithubAlt} />&nbsp;{repo.slice(19)}
+          </a>
+          : ' '
+        }
       </div>
     </Col>
   )
