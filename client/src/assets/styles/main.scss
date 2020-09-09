@@ -22,8 +22,5 @@ This SCSS is where it all comes together!
 @use './components/razor-edge-container';
 @use './components/rounded-bottom-borders';
 
-// utilities
-@use './utils/debug-borders';
-
 // global styles
 @use './base/style'
