@@ -33,9 +33,13 @@ const Project = ({ id, title, url, repo, image, lang, tech }) => {
         { tech ? displayAsCommaDelimitedList(tech) : ' ' }
       </div>
       <div className="repo">
-        { repo && repo !== '#0'
+        { (repo && repo !== '#0')
           ? <a href={repo} target="blank">
-            <FontAwesomeIcon icon={faGithubAlt} />&nbsp;{repo.slice(19)}
+            <FontAwesomeIcon 
+              icon={faGithubAlt} 
+              size="lg"
+              className="github-icon"
+            /> {repo.slice(19)}
           </a>
           : ' '
         }

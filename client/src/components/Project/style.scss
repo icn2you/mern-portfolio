@@ -30,6 +30,11 @@ figure {
   a {
     color: inherit;
 
+    .github-icon {
+      font-size: 0.875rem;
+      margin-right: 3px;
+    }
+
     &:active, &:focus, &:hover {
       color: colors.$almost-black;
       text-decoration: none;
