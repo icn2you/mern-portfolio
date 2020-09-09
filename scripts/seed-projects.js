@@ -143,7 +143,7 @@ mongoose.connect(
     {
       title: 'Lagomify',
       url: 'https://lagomify.herokuapp.com/',
-      repo: '#',
+      repo: '#0',
       imagePath: './static/media/laptop-grayscale.64419d1c.png',
       programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
       technologiesUsed: [],
