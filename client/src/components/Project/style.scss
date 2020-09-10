@@ -6,38 +6,38 @@ Ver.:  0.1.0 20200906
 
 This SCSS specifies the layout and style for the Project React component of my developer portfolio.
 ***********************************************************************/
+@use '../../assets/styles/colors/pantone-ponder-palette' as ponder;
 @use '../../assets/styles/colors/portfolio-colors' as colors;
 @use '../../assets/styles/components/hover-images' as images;
+
+div a {
+  color: ponder.$classic-blue;
+
+  &:active, &:focus, &:hover {
+    color: colors.$almost-black;
+    text-decoration: none;
+  }
+}
 
 figure {
   @include images.hover-images;
 
-  &:active, &:focus, &:hover {
-    figcaption {
-      color: colors.$almost-black;
-      font-weight: 600;
-    }
-  }
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .lang, .tech {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .repo {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
 
   a {
-    color: inherit;
-
     .github-icon {
-      font-size: 0.875rem;
+      font-size: 1rem;
       margin-right: 3px;
-    }
-
-    &:active, &:focus, &:hover {
-      color: colors.$almost-black;
-      text-decoration: none;
     }
   }
 }
