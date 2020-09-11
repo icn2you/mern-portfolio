@@ -1,0 +1,29 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/10/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200910
+
+This SCSS specifies the layout and style for the Main React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+@use '../../assets/styles/components/razor-edge-container' as container;
+
+main {
+  #projects-container {
+    margin-bottom: 15rem;
+  }
+
+  #contact-form-container {
+    /*
+      NOTE: I may convert the Footer component into a razor-edge
+            container at some point; thus, I'm leaving the following config intact. It's currently invisible. (09/10/2020)
+    */
+    margin-bottom: 0;
+
+    @include container.razor-edge(
+      snorkel.$cashmere-blue, 2rem, 3rem, bottom left, -7deg, top);
+    @include container.razor-edge(
+      snorkel.$cashmere-blue, 2rem, 3rem, top right, -7deg);
+  }
+}
