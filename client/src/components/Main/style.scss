@@ -19,11 +19,18 @@ main {
       NOTE: I may convert the Footer component into a razor-edge
             container at some point; thus, I'm leaving the following config intact. It's currently invisible. (09/10/2020)
     */
-    margin-bottom: 0;
-
     @include container.razor-edge(
       snorkel.$cashmere-blue, 2rem, 3rem, bottom left, -7deg, top);
     @include container.razor-edge(
       snorkel.$cashmere-blue, 2rem, 3rem, top right, -7deg);
+
+    margin-bottom: 0;
+
+    h1 {
+      &:after {
+        border-top: 2px solid rgba(209, 220, 234, 0.5);
+        border-bottom: 2px solid rgba(209, 220, 234, 0.5);
+      }
+    }
   }
 }

@@ -37,9 +37,4 @@ h1 {
   @include borders.rounded-bottom-border(colors.$slightly-gray, 2px);
 
   color: snorkel.$pirate-black;
-
-  #contact-form &:after {
-    border-top: 2px solid rgba(209, 220, 234, 0.5);
-    border-bottom: 2px solid rgba(209, 220, 234, 0.5);
-  }
 }
