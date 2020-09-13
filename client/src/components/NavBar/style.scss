@@ -7,7 +7,7 @@ Ver.:  0.1.0 20200831
 This SCSS specifies the layout and style for the NavBar React component of my developer portfolio.
 ***********************************************************************/
 @use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
-@use '../../assets/styles/components/hover-sliders' as flair;
+@use '../../assets/styles/mixins/hover-sliders' as flair;
 
 nav {
   ul {

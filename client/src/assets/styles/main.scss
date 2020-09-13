@@ -17,10 +17,10 @@ This SCSS is where it all comes together!
 @use './fonts/portfolio-fonts';
 
 // components
-@use './components/hover-images';
-@use './components/hover-sliders';
-@use './components/razor-edge-container';
-@use './components/rounded-bottom-borders';
+@use './mixins/hover-images';
+@use './mixins/hover-sliders';
+@use './mixins/razor-edge-container';
+@use './mixins/rounded-bottom-borders';
 
 // global styles
 @use './base/style'

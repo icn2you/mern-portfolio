@@ -8,7 +8,7 @@ This SCSS specifies the layout and style for the Project React component of my d
 ***********************************************************************/
 @use '../../assets/styles/colors/pantone-ponder-palette' as ponder;
 @use '../../assets/styles/colors/portfolio-colors' as colors;
-@use '../../assets/styles/components/hover-images' as images;
+@use '../../assets/styles/mixins/hover-images' as images;
 
 div a {
   color: ponder.$classic-blue;
