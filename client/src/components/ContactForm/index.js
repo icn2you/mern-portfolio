@@ -19,6 +19,16 @@ const ContactForm = () => {
           placeholder="wonder.woman@example.com" 
         />
       </Form.Group>
+      <Form.Control 
+        type="hidden" 
+        name="_cc" 
+        value="sonso@example.com" 
+      />
+      <Form.Control 
+        type="hidden" 
+        name="_subject" 
+        value="Message from a Visitor to Your Dev Portfolio" 
+      />
       <Form.Group controlId="formContactMeMsg">
         <Form.Label>Message</Form.Label>
         <Form.Control 
