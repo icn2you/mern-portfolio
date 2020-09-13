@@ -41,7 +41,6 @@ const Project = ({ id, title, url, repo, image, lang, tech }) => {
             <FontAwesomeIcon 
               icon={faGithubAlt} 
               size="lg"
-              className="github-icon"
             /> {repo.slice(19)}
           </a>
           : ' '
