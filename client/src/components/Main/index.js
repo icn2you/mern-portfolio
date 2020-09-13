@@ -1,4 +1,11 @@
-import React, { useEffect, useState } from 'react'
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  08/26/2020
+File:  index.js
+Ver.:  0.1.0 20200826
+
+This script contains the Main React component of my developer portfolio.
+***********************************************************************/import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { ContactForm, Project } from '../'
 import API from '../../utils/api'

@@ -1,3 +1,11 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/05/2020
+File:  index.js
+Ver.:  0.1.0 20200905
+
+This script contains the Project React component of my developer portfolio.
+***********************************************************************/
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
