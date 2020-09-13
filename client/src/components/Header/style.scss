@@ -10,10 +10,10 @@ This SCSS specifies the layout and style for the Header React component of my de
 @use '../../assets/styles/mixins/razor-edge-container' as container;
 
 header {
-  div {
+  margin-bottom: 15rem;
+
+  #intro-container {
     @include container.razor-edge(
       snorkel.$classic-blue, 2rem, 3rem, top right, -7deg);
   }
-
-  margin-bottom: 15rem;
 }

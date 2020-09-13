@@ -15,7 +15,7 @@ import './style.scss'
 const Header = () => {
   return (
     <header>
-      <div className="skewed-container">
+      <div id="intro-container" className="skewed-container">
         <Container className="text-center">
           <Row className="justify-content-between">
             <Col lg={4} className="text-lg-left">
