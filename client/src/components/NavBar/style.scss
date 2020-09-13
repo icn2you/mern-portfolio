@@ -22,6 +22,8 @@ nav {
       display: inline-block;
 
       a {
+        @include flair.hover-sliders(snorkel.$coralessence);
+                
         color: inherit;
         display: inherit;
         margin-left: 0.5em;
@@ -34,8 +36,6 @@ nav {
           color: white;
           text-decoration: inherit;
         }
-
-        @include flair.hover-sliders(snorkel.$coralessence);
       }
     }
   }
