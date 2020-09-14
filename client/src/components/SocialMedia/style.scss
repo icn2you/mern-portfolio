@@ -1,0 +1,21 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/13/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200913
+
+This SCSS specifies the layout and style for the SocialMedia React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+
+.social-media {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2rem 1rem;
+  text-transform: uppercase;
+
+  svg {
+    color: snorkel.$jasmine-green;
+    margin-right: 1.5rem;
+  }
+}
