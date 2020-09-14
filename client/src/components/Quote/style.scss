@@ -1,0 +1,49 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/13/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200913
+
+This SCSS specifies the layout and style for the Quote React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+@use '../../assets/styles/colors/portfolio-colors' as colors;
+
+/*
+  Thanks to [Jake Rocheleau](https://1stwebdesigner.com/css-snippets-blockquotes/) and [Harm Putman](https://codepen.io/harmputman/pen/IpAnb) for this lovely `blockquote` style.
+*/
+div {
+  blockquote {
+    border: solid colors.$almost-black;
+    border-width: 2px 0;
+    margin: 1.5em 0;
+    padding: 1.5em 0 0.5em;
+    position: relative;
+
+    &:before {
+      background: snorkel.$pirate-black;
+      color: colors.$almost-black;
+      content: '\201C';
+      font: 700 4em/0.9em 'Playfair Display SC', serif;
+      left: 50%;
+      height: 2rem;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 3rem;
+    }
+
+    &:after {
+      color: colors.$almost-black;
+      content: '\2014\2002' attr(cite);
+      display: block;
+      font-size: 0.875em;
+      font-weight: 700;
+      text-align: right;
+      text-transform: uppercase;      
+    }
+  }
+}
