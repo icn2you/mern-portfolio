@@ -8,7 +8,6 @@ This script contains the Project React component of my developer portfolio.
 ***********************************************************************/
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithubAlt } from '@fortawesome/free-brands-svg-icons'
 import './style.scss'
 
 // Image assets must be required in order to render properly.
@@ -47,7 +46,7 @@ const Project = ({ id, title, url, repo, image, lang, tech }) => {
         { (repo && repo !== '#0')
           ? <a href={repo} target="blank">
             <FontAwesomeIcon 
-              icon={faGithubAlt} 
+              icon={['fab', 'github-alt']} 
               size="lg"
             /> {repo.slice(19)}
           </a>
