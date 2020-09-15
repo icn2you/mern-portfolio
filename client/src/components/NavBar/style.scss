@@ -3,6 +3,7 @@ FSWD:  Christopher B. Zenner
 Date:  08/31/2020
 File:  style.scss -> style.css
 Ver.:  0.1.0 20200831
+       0.2.0 20200914
 
 This SCSS specifies the layout and style for the NavBar React component of my developer portfolio.
 ***********************************************************************/
@@ -35,6 +36,25 @@ nav {
         &:active, &:focus, &:hover {
           color: white;
           text-decoration: inherit;
+        }
+      }
+    }
+  }
+}
+
+/*
+  NOTE: This media query represents the maximum width of an iPhone 6,
+        which should scale nicely on most mobile phones.
+*/
+@media (max-width: 375px) {
+  nav {
+    ul {
+      font-size: 1.4rem;
+
+      li {
+        a {
+          margin-left: 0.25em;
+          margin-right: 0.25em;
         }
       }
     }

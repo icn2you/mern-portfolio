@@ -3,6 +3,7 @@ FSWD:  Christopher B. Zenner
 Date:  09/01/2020
 File:  style.scss -> style.css
 Ver.:  0.1.0 20200901
+       0.2.0 20200914
 
 This SCSS specifies the layout and style for the Intro React component 
 of my developer portfolio.
@@ -34,5 +35,13 @@ of my developer portfolio.
 @media (max-width: 991.98px) {
   #intro {
     padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #intro {
+    span {
+      display: block;
+    }
   }
 }

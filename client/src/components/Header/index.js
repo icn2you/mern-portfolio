@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header>
       <div id="intro-container" className="skewed-container">
-        <Container className="text-center">
+        <Container fluid="lg" className="text-center">
           <Row className="justify-content-between">
             <Col lg={4} className="text-lg-left">
               {/* Personal Logo */}
@@ -26,10 +26,10 @@ const Header = () => {
             </Col>
           </Row>
           <Row className="mt-3 justify-content-between">
-            <Col lg={8} className="text-lg-left">
+            <Col lg={7} xl={8} className="text-lg-left">
               <Intro />
             </Col>
-            <Col lg={4} className="text-lg-right">
+            <Col lg={5} xl={4} className="text-lg-right">
               <Portrait />
             </Col>
           </Row>

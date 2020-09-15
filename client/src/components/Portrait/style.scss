@@ -3,6 +3,7 @@ FSWD:  Christopher B. Zenner
 Date:  09/01/2020
 File:  style.scss -> style.css
 Ver.:  0.1.0 20200901
+       0.2.0 20200914
 
 This SCSS specifies the layout and style for the Portrait React 
 component of my developer portfolio.
@@ -13,7 +14,7 @@ component of my developer portfolio.
   img {
     border: 10px solid blues.$darkest-classic-blue;
     border-radius: 100%;
-    max-width: 720px;
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
   }
 }
