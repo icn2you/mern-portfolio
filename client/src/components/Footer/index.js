@@ -3,6 +3,7 @@ FSWD:  Christopher B. Zenner
 Date:  08/26/2020
 File:  index.js
 Ver.:  0.1.0 20200826
+       0.2.0 20200915
 
 This script contains the Footer React component of my developer 
 portfolio.
@@ -35,12 +36,12 @@ const Footer = () => {
     <footer>
       <div id="about-me-container" class="skewed-container">
         <Container>
-          <Row className="justify-content-between">
+          <Row className="justify-content-center justify-content-lg-between">
             <Col lg={6} className="align-self-start">
               <Biosketch />
               <Quote />
             </Col>
-            <Col lg={4} className="align-self-center">
+            <Col lg={4} className="col-md-auto align-self-center">
             { socialMediaProfiles
               ? socialMediaProfiles.map(profile =>
                 <SocialMedia 
