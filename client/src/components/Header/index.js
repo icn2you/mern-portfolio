@@ -3,6 +3,7 @@ FSWD:  Christopher B. Zenner
 Date:  08/26/2020
 File:  index.js
 Ver.:  0.1.0 20200826
+       0.2.0 20200915
 
 This script contains the Header React component of my developer 
 portfolio.
@@ -21,15 +22,17 @@ const Header = () => {
             <Col lg={4} className="text-lg-left">
               {/* Personal Logo */}
             </Col>
-            <Col lg={8} className="text-lg-right">
+            {/* Padding must explicitly be set here to render
+                properly on viewports less than 375px. */}
+            <Col lg={8} className="pl-0 pr-0 text-lg-right">
               <NavBar />
             </Col>
           </Row>
           <Row className="mt-3 justify-content-between">
-            <Col lg={7} xl={8} className="text-lg-left">
+            <Col lg={7} className="align-self-center text-lg-left">
               <Intro />
             </Col>
-            <Col lg={5} xl={4} className="text-lg-right">
+            <Col lg={5} className="align-self-center text-lg-right">
               <Portrait />
             </Col>
           </Row>
