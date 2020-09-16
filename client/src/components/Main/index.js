@@ -3,6 +3,7 @@ FSWD:  Christopher B. Zenner
 Date:  08/26/2020
 File:  index.js
 Ver.:  0.1.0 20200826
+       0.2.0 20200915
 
 This script contains the Main React component of my developer portfolio.
 ***********************************************************************/import React, { useEffect, useState } from 'react'
@@ -65,7 +66,7 @@ const Main = () => {
             </Col>
           </Row>
           <Row className="justify-content-center">
-            <Col xs={8}>
+            <Col lg={9} xl={8}>
               <ContactForm />
             </Col>
           </Row>
