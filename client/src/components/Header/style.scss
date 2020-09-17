@@ -17,3 +17,13 @@ header {
       snorkel.$classic-blue, 2rem, 3rem, top right, -7deg);
   }
 }
+
+/*
+  NOTE: This media query represents the maximum width of an iPhone 6,
+        which should scale nicely on most mobile phones.
+*/
+@media (max-width: 375px) {
+  header {
+    margin-bottom: 7rem;
+  }
+}

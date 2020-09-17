@@ -34,3 +34,15 @@ main {
     }
   }
 }
+
+/*
+  NOTE: This media query represents the maximum width of an iPhone 6,
+        which should scale nicely on most mobile phones.
+*/
+@media (max-width: 375px) {
+  main {
+    #projects-container {
+      margin-bottom: 7rem;
+    }
+  }
+}
