@@ -19,10 +19,10 @@ header {
 }
 
 /*
-  NOTE: This media query represents the maximum width of an iPhone 6,
-        which should scale nicely on most mobile phones.
+  NOTE: This media query represents the maximum viewport width of an
+        iPhone 11 Pro Max, which should scale nicely on most mobile phones.
 */
-@media (max-width: 375px) {
+@media (max-width: 414px) {
   header {
     margin-bottom: 7rem;
   }
