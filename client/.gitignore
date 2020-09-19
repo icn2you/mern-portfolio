@@ -22,6 +22,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # CBZ stuff
-/pxd
-/temp
-.prev
+**/temp/
+**/pxd/
+*.prev
