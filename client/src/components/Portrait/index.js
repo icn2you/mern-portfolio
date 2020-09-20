@@ -15,7 +15,7 @@ const Portrait = () => {
        in order for the image border to render. */
     <div id="portrait">
       <img 
-        src={require('../../assets/images/avatar-me-2020.png')} 
+        src={require('../../assets/images/1x/avatar-me-2020.png')} 
         alt="Christopher Zenner" 
         className="img-fluid" 
       />

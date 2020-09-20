@@ -11,7 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './style.scss'
 
 // Image assets must be required in order to render properly.
-require('../../assets/images/laptop-grayscale.png')
+require('../../assets/images/0.5x/laptop-grayscale-0.5x.png')
+require('../../assets/images/0.5x/word-guess-color-0.5x.png')
+require('../../assets/images/0.5x/word-guess-grayscale-0.5x.png')
 
 const Project = ({ id, title, url, repo, image, lang, tech }) => {
   const displayAsCommaDelimitedList = (arr) => {
