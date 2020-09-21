@@ -12,7 +12,8 @@
  $scale-time -> total time for the scale effect to go from 0% to 100%
 ***********************************************************************/
 
-@mixin hover-sliders($color, $size: 2px, $top-margin: 0.25em, $scale-time: 0.25s) {
+@mixin hover-sliders(
+  $color, $size: 2px, $top-margin: 0.25em, $scale-time: 0.25s) {
   &:after {
     border-bottom: $size solid $color;
     border-radius: $size * 2;
