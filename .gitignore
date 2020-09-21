@@ -126,6 +126,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# cbz
-.arch
-.orig
+# CBZ Stuff
+**/temp/
+*.arch
+*.orig
+*.prev
