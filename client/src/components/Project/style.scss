@@ -8,36 +8,82 @@ This SCSS specifies the layout and style for the Project React component of my d
 ***********************************************************************/
 @use '../../assets/styles/colors/pantone-ponder-palette' as ponder;
 @use '../../assets/styles/colors/portfolio-colors' as colors;
-@use '../../assets/styles/mixins/hover-images' as images;
 
-div a {
-  color: ponder.$classic-blue;
-
-  &:active, &:focus, &:hover {
-    color: colors.$almost-black;
-    text-decoration: none;
-  }
-}
-
-figure {
-  @include images.hover-images;
-
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.lang, .tech {
-  font-size: 1rem;
-}
-
-.repo {
-  font-size: 0.9rem;
-  padding-top: 1rem;
+div {
+  --background-image: url(
+    '../../assets/images/0.5x/laptop-grayscale-0.5x.png');
+  --project-sprite: url(
+    '../../assets/images/sprites/laptop-sprite.png');
 
   a {
-    svg {
-      font-size: 1rem;
-      margin-right: 3px;
+    color: ponder.$classic-blue;
+
+    &:active, &:focus, &:hover {
+      color: colors.$almost-black;
+      text-decoration: none;
+    }
+
+    figure {
+      background-image: var(--background-image);
+      background-position: center;
+      background-repeat: no-repeat;
+      font-size: 1.2rem;
+      font-weight: 600;
+      height: 375px;
+      max-height: 375px;
+      max-width: 500px;
+      position: relative;
+      width: 500px;
+
+      &.photo-box {
+        background-image: var(--project-sprite);
+        background-position: -5px -5px;
+
+        &.photo-box:hover {
+          background-position: -515px -5px;  
+          cursor: pointer;
+        }
+      }
+    
+      figcaption {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+      }
+    }
+
+    /* 
+      Thanks to Nicolás Engler for this tip on ["Bulletproofing CSS
+      Custom Properties"](https://www.toptal.com/front-end/dynamic-css-with-custom-properties).
+    */
+    @supports (not(--value: 0)) {
+      /* CSS variables not supported */
+      figure {
+        background-image: url(
+          '../../assets/images/0.5x/laptop-grayscale-0.5x.png');
+
+        &.photo-box {
+          background-image: url(
+            '../../assets/images/sprites/laptop-sprite.png');
+        }
+      }
+    }
+  }
+
+  .lang, .tech {
+    font-size: 1rem;
+  }
+  
+  .repo {
+    font-size: 0.9rem;
+    padding-top: 1rem;
+  
+    a {
+      svg {
+        font-size: 1rem;
+        margin-right: 3px;
+      }
     }
   }
 }
