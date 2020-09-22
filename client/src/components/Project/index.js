@@ -8,12 +8,8 @@ This script contains the Project React component of my developer portfolio.
 ***********************************************************************/
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './images'
 import './style.scss'
-
-// Image assets must be required in order to render properly.
-require('../../assets/images/0.5x/laptop-grayscale-0.5x.png')
-require('../../assets/images/0.5x/word-guess-color-0.5x.png')
-require('../../assets/images/0.5x/word-guess-grayscale-0.5x.png')
 
 const Project = ({ id, title, url, repo, image, lang, tech }) => {
   const displayAsCommaDelimitedList = (arr) => {
@@ -28,13 +24,11 @@ const Project = ({ id, title, url, repo, image, lang, tech }) => {
   return (
     <div className="text-center">
       <a href={url} rel="noopener noreferrer" target="_blank">
-        <figure id={id} className="photo-box">
-          <img src={image} alt="MacBook Pro" className="img-fluid" />
-          <img 
-            src={image} 
-            alt="MacBook Pro" 
-            className="img-fluid top-img" 
-          />
+        <figure 
+          id={id} 
+          className="photo-box"
+          style={{'--project-sprite': `url('${image}')`}}
+        >
           <figcaption className="text-center">{title}</figcaption>
         </figure>
       </a>
