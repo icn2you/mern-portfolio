@@ -4,7 +4,7 @@ Date:  08/28/2020
 File:  index.js
 Ver.:  0.1.0 20200828
 
-This script contains the Intro React component of my developer 
+This script contains the Intro React component of my developer
 portfolio.
 ***********************************************************************/
 import React from 'react'

@@ -5,7 +5,7 @@ File:  index.js
 Ver.:  0.1.0 20200826
        0.2.0 20200915
 
-This script contains the Header React component of my developer 
+This script contains the Header React component of my developer
 portfolio.
 ***********************************************************************/
 import React from 'react'

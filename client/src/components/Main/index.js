@@ -36,23 +36,23 @@ const Main = () => {
           </Row>
           <Row>
             <Col xs={12}>
-              <div className="d-flex flex-wrap 
+              <div className="d-flex flex-wrap
                 justify-content-sm-center justify-content-xl-between">
-              { projects.length
-                ? projects.map((project, i) =>
-                  <Project
-                    key={project._id}
-                    id={project._id}
-                    title={project.title}
-                    url={project.url}
-                    repo={project.repo}
-                    image={project.imagePath}
-                    lang={project.programmingLangs}
-                    tech={project.technologiesUsed}
-                  />
-                )
-                : ''
-              }
+                { projects.length
+                  ? projects.map((project, i) =>
+                    <Project
+                      key={project._id}
+                      id={project._id}
+                      title={project.title}
+                      url={project.url}
+                      repo={project.repo}
+                      image={project.imagePath}
+                      lang={project.programmingLangs}
+                      tech={project.technologiesUsed}
+                    />
+                  )
+                  : ''
+                }
               </div>
             </Col>
           </Row>

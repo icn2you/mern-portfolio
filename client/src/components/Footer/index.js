@@ -5,7 +5,7 @@ File:  index.js
 Ver.:  0.1.0 20200826
        0.2.0 20200915
 
-This script contains the Footer React component of my developer 
+This script contains the Footer React component of my developer
 portfolio.
 ***********************************************************************/
 import React from 'react'
@@ -14,22 +14,32 @@ import { Biosketch, Copyright, Quote, SocialMedia } from '../'
 import './style.scss'
 
 const socialMediaProfiles = [
-  { label: 'Email', 
-    icon: 'envelope', 
-    link: 'mailto:christopher.zenner@differentdrummer.dev?subject=Message&nbsp;from&nbsp;a&nbsp;Visitor&nbsp;to&nbsp;Your&nbsp;Dev&nbsp;Portfolio' },
-  { label: 'Résumé', 
-    icon: 'file-word', 
-    link: 'https://drive.google.com/file/d/16f1ij1jwi_jEuPEcyCHgfz3A2673DshP/view?usp=sharing' },
-  { label: 'GitHub', 
-    icon: 'github', 
-    link: 'https://github.com/icn2you' },
-  { label: 'LinkedIn', 
-    icon: 'linkedin-in', 
-    link: 'https://www.linkedin.com/in/icn2you/' },
-  { label: 'Twitter', 
+  {
+    label: 'Email',
+    icon: 'envelope',
+    link: 'mailto:christopher.zenner@differentdrummer.dev?subject=Message&nbsp;from&nbsp;a&nbsp;Visitor&nbsp;to&nbsp;Your&nbsp;Dev&nbsp;Portfolio'
+  },
+  {
+    label: 'Résumé',
+    icon: 'file-word',
+    link: 'https://drive.google.com/file/d/16f1ij1jwi_jEuPEcyCHgfz3A2673DshP/view?usp=sharing'
+  },
+  {
+    label: 'GitHub',
+    icon: 'github',
+    link: 'https://github.com/icn2you'
+  },
+  {
+    label: 'LinkedIn',
+    icon: 'linkedin-in',
+    link: 'https://www.linkedin.com/in/icn2you/'
+  },
+  {
+    label: 'Twitter',
     icon: 'twitter',
-    link: 'https://twitter.com/icn2you' }
-];
+    link: 'https://twitter.com/icn2you'
+  }
+]
 
 const Footer = () => {
   return (
@@ -42,16 +52,16 @@ const Footer = () => {
               <Quote />
             </Col>
             <Col lg={4} className="col-md-auto align-self-center">
-            { socialMediaProfiles
-              ? socialMediaProfiles.map(profile =>
-                <SocialMedia 
-                  label={profile.label}
-                  icon={profile.icon}
-                  link={profile.link}
-                />
-              )
-              : ''
-            }
+              { socialMediaProfiles
+                ? socialMediaProfiles.map(profile =>
+                  <SocialMedia
+                    label={profile.label}
+                    icon={profile.icon}
+                    link={profile.link}
+                  />
+                )
+                : ''
+              }
             </Col>
           </Row>
         </Container>

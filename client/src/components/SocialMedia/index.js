@@ -4,7 +4,7 @@ Date:  09/12/2020
 File:  index.js
 Ver.:  0.1.0 20200912
 
-This script contains the SocialMedia React component of my developer 
+This script contains the SocialMedia React component of my developer
 portfolio.
 ***********************************************************************/
 import React from 'react'
@@ -13,13 +13,12 @@ import './style.scss'
 
 const SocialMedia = ({ label, icon, link }) => {
   const getFAIcon = (faIcon) => {
-    switch (faIcon) 
-    {
+    switch (faIcon) {
       case 'github':
       case 'linkedin-in':
       case 'twitter':
-        return ( 
-          <FontAwesomeIcon 
+        return (
+          <FontAwesomeIcon
             icon={['fab', faIcon]}
             size="2x"
             fixedWidth
@@ -27,8 +26,8 @@ const SocialMedia = ({ label, icon, link }) => {
           />
         )
       default:
-        return ( 
-          <FontAwesomeIcon 
+        return (
+          <FontAwesomeIcon
             icon={faIcon}
             size="2x"
             fixedWidth
