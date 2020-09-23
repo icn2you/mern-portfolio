@@ -1,8 +1,13 @@
 import React from 'react'
+import { 
+  EReCaptchaV2Size, EReCaptchaV2Theme, ReCaptchaV2 
+} from 'react-recaptcha-x'
 import { Button, Form } from 'react-bootstrap'
 import './style.scss'
 
 const ContactForm = () => {
+  const handleReCaptcha = token => {}
+
   return (
     <Form>
       <Form.Group controlId="formContactMeName">
@@ -54,6 +59,12 @@ const ContactForm = () => {
           value="Reset"
         />
       </Form.Group>
+      <ReCaptchaV2
+        id="recaptcha"
+        callback={handleReCaptcha}
+        size={EReCaptchaV2Size.Normal}
+        theme={EReCaptchaV2Theme.Light}
+      />
     </Form>
   )
 }
