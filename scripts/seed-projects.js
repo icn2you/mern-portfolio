@@ -15,7 +15,7 @@ const projects = [
     imagePath: './static/media/word-guess-sprite.0d6088ba.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['jQuery'],
-    completionDate: new Date(2020, 02, 29),
+    completionDate: new Date(2020, 2, 29),
     projectType: 'individual',
     starred: false,
     active: true
@@ -27,10 +27,10 @@ const projects = [
     imagePath: './static/media/crystals-collector-sprite.b539ecda.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['jQuery'],
-    completionDate: new Date(2020, 03, 07),
+    completionDate: new Date(2020, 3, 7),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'Real Wonder Women Trivia',
@@ -39,10 +39,10 @@ const projects = [
     imagePath: './static/media/woman-trivia-sprite.7b8913ea.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['jQuery'],
-    completionDate: new Date(2020, 03, 16),
+    completionDate: new Date(2020, 3, 16),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'GIF-tastic',
@@ -51,10 +51,10 @@ const projects = [
     imagePath: './static/media/gif-tastic-sprite.11af8482.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['API', 'jQuery'],
-    completionDate: new Date(2020, 03, 21),
+    completionDate: new Date(2020, 3, 21),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'Multiplayer RPS',
@@ -63,10 +63,10 @@ const projects = [
     imagePath: './static/media/rps-multiplayer-sprite.b5c891b2.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['Firebase', 'jQuery'],
-    completionDate: new Date(2020, 03, 28),
+    completionDate: new Date(2020, 3, 28),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'FriendFinder',
@@ -75,10 +75,10 @@ const projects = [
     imagePath: './static/media/friendfinder-sprite.4e7b1449.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['Express', 'Handlebars', 'Node', 'jQuery'],
-    completionDate: new Date(2020, 05, 09),
+    completionDate: new Date(2020, 5, 9),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'News That\'s Fit to Scrape',
@@ -87,10 +87,10 @@ const projects = [
     imagePath: './static/media/newsscraper-sprite.bf2b5152.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['MongoDB', 'Express', 'Handlebars', 'Node'],
-    completionDate: new Date(2020, 07, 11),
+    completionDate: new Date(2020, 7, 11),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'Pokéclick',
@@ -99,10 +99,10 @@ const projects = [
     imagePath: './static/media/pokeclick-game-sprite.c3372381.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['React', 'Node'],
-    completionDate: new Date(2020, 06, 23),
+    completionDate: new Date(2020, 6, 23),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'Google Books Search',
@@ -111,10 +111,10 @@ const projects = [
     imagePath: './static/media/google-books-search-sprite.23653045.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['MongoDB', 'Express', 'React', 'Node'],
-    completionDate: new Date(2020, 07, 23),
+    completionDate: new Date(2020, 7, 23),
     projectType: 'individual',
     starred: false,
-    active: true        
+    active: true
   },
   {
     title: 'CookQuik',
@@ -123,7 +123,7 @@ const projects = [
     imagePath: './static/media/cookquik-sprite.f94392de.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['API', 'Webpack', 'jQuery'],
-    completionDate: new Date(2020, 04, 04),
+    completionDate: new Date(2020, 4, 4),
     projectType: 'group',
     starred: false,
     active: true
@@ -135,10 +135,10 @@ const projects = [
     imagePath: './static/media/listenhear-sprite.189a6e3c.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: ['MySQL', 'Express', 'Handlebars', 'Node'],
-    completionDate: new Date(2020, 05, 31),
+    completionDate: new Date(2020, 5, 31),
     projectType: 'group',
     starred: false,
-    active: true  
+    active: true
   },
   {
     title: 'Lagomify',
@@ -147,7 +147,7 @@ const projects = [
     imagePath: './static/media/lagomify-sprite.f19a8dd9.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
     technologiesUsed: [],
-    completionDate: new Date(2020, 07, 23),
+    completionDate: new Date(2020, 7, 23),
     projectType: 'group',
     starred: false,
     active: true
