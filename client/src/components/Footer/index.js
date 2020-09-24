@@ -44,7 +44,7 @@ const socialMediaProfiles = [
 const Footer = () => {
   return (
     <footer>
-      <div id="about-me-container" class="skewed-container">
+      <div id="about-me-container" className="skewed-container">
         <Container>
           <Row className="justify-content-center justify-content-lg-between">
             <Col lg={6} className="align-self-start">
@@ -53,8 +53,9 @@ const Footer = () => {
             </Col>
             <Col lg={4} className="col-md-auto align-self-center">
               { socialMediaProfiles
-                ? socialMediaProfiles.map(profile =>
+                ? socialMediaProfiles.map((profile, i) =>
                   <SocialMedia
+                    key={i}
                     label={profile.label}
                     icon={profile.icon}
                     link={profile.link}
