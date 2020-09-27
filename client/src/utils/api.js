@@ -1,5 +1,23 @@
+require('isomorphic-fetch')
+
+const RECAPTCHA_SERVER_KEY =
+  process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
+
 export default {
   getProjects: (filter) => fetch(`/api/projects?${filter}`)
     .then(resp => resp.json())
-    .catch(err => console.error(err.stack))
+    .catch(err => console.error(err.stack)),
+
+  isVisitorHuman: (verificationKey) => fetch(
+    'https://www.google.com/recaptcha/api/siteverify', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+      },
+      body: `secret=${RECAPTCHA_SERVER_KEY}&response=${verificationKey}`
+    })
+    .then(resp => resp.json())
+    .then(json => json.success)
+    .catch(err => console.error(err.message))
 }
