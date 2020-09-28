@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   EReCaptchaV2Size, EReCaptchaV2Theme, ReCaptchaV2
 } from 'react-recaptcha-x'
 import { Button, Form } from 'react-bootstrap'
+import API from '../../utils/api'
 import './style.scss'
 
 const ContactForm = () => {
@@ -11,6 +12,14 @@ const ContactForm = () => {
   const [recaptchaV2Error, setRecaptchaV2Error] = useState(false)
   const [recaptchaV2Message, setRecaptchaV2Message] = useState(null)
 
+  useEffect(() => {
+    if (recaptchaV2Token !== '') {
+      API.isVisitorHuman(recaptchaV2Token)
+        .then(res => console.log(res))
+        .catch(err => console.error(err.stack))
+    }
+  }, [recaptchaV2Token])
+
   const handleRecaptchaV2 = token => {
     if (typeof token === 'string') {
       setRecaptchaV2Token(token)
@@ -18,18 +27,13 @@ const ContactForm = () => {
       setRecaptchaV2Error(false)
     } else if (typeof token === 'boolean' && !token) {
       setRecaptchaV2Expired(true)
-      setRecaptchaV2Message('Your token has expired. Please check the reCAPTCHA box again.')
+      setRecaptchaV2Message('Your verification has expired. Please check the reCAPTCHA checkbox again.')
+      console.log(`Verification expired: ${recaptchaV2Expired}`)
     } else if (token instanceof Error) {
       setRecaptchaV2Error(true)
-      setRecaptchaV2Message('An error has occured. Please check your connection and try again.')
+      setRecaptchaV2Message('An error has occurred. Please check your connection and try again.')
+      console.log(`ReCAPTCHA error: ${recaptchaV2Error}`)
     }
-
-    // temporary console output:
-    console.log(`Your token is ${recaptchaV2Token}`)
-    console.log(
-      `Your token has ${(!recaptchaV2Expired) ? 'not ' : null}expired.`)
-    console.log(
-      `An error ${recaptchaV2Error ? 'occurred' : 'did not occur'}.`)
   }
 
   return (
@@ -84,7 +88,7 @@ const ContactForm = () => {
         />
       </Form.Group>
       <Form.Group
-        controlId="formRecaptcha2"
+        controlId="formRecaptchaV2"
         className="d-flex justify-content-center pt-4"
       >
         <ReCaptchaV2
@@ -93,7 +97,17 @@ const ContactForm = () => {
           size={EReCaptchaV2Size.Normal}
           theme={EReCaptchaV2Theme.Light}
         />
-        <Form.Text id="recaptcha-msg" muted>
+      </Form.Group>
+      {/*
+          ReCAPTCHA v2 component provides user feedback when
+          verification expires; thus, this component may be
+          unnecessary. Reaccess prior to project completion.
+      */}
+      <Form.Group
+        controlId="formRecaptchaV2Feedback"
+        className="d-flex justify-content-center"
+      >
+        <Form.Text id="recaptcha-v2-feedback" muted>
           { recaptchaV2Message }
         </Form.Text>
       </Form.Group>
