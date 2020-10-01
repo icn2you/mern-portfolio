@@ -1,3 +1,13 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  09/10/2020
+File:  index.js
+Ver.:  0.1.0 20200826 - basic form
+       0.2.0 20200922 - reCAPTCHA v2
+       0.3.0 20200929 - form handling
+
+This script contains the ContactForm React component of my developer portfolio.
+***********************************************************************/
 import React, { useEffect, useState } from 'react'
 import {
   EReCaptchaV2Size, EReCaptchaV2Theme, ReCaptchaV2
@@ -9,7 +19,7 @@ import './style.scss'
 const initFormData = Object.freeze({
   name: '',
   email: '',
-  _cc: 'sonso@example.com',
+  _cc: 'zerjio89@gmail.com',
   _subject: 'Message from a Visitor to Your Dev Portfolio',
   message: ''
 })
@@ -41,15 +51,26 @@ const ContactForm = () => {
   const handleFormSubmit = ev => {
     ev.preventDefault()
 
-    API.sendVisitorMsg(formData)
-      .then(res => console.log(res))
-      .catch(err => console.error(err.stack))
+    if (typeof recaptchaV2Token === 'string' &&
+      recaptchaV2Token.length > 0 &&
+      !recaptchaV2Err &&
+      !recaptchaV2Exp) {
+      // Clear any error message.
+      setRecaptchaV2Msg('')
 
-    // Clear form input.
-    setFormData(initFormData)
+      // Send visitor's message to API for routing.
+      API.sendVisitorMsg(formData)
+        .then(res => console.log(res))
+        .catch(err => console.error(err.stack))
+
+      // Clear form input.
+      setFormData(initFormData)
+    } else {
+      setRecaptchaV2Msg('Your message cannot be sent. Please confirm you are human using the reCAPTCHA widget above!')
+    }
   }
 
-  const handleRecaptchaV2 = token => {
+  const handleRecaptchaV2Verification = token => {
     if (typeof token === 'string') {
       setRecaptchaV2Token(token)
       setRecaptchaV2Exp(false)
@@ -57,11 +78,9 @@ const ContactForm = () => {
     } else if (typeof token === 'boolean' && !token) {
       setRecaptchaV2Exp(true)
       setRecaptchaV2Msg('Your verification has expired. Please check the reCAPTCHA checkbox again.')
-      console.log(`Verification expired: ${recaptchaV2Exp}`)
     } else if (token instanceof Error) {
       setRecaptchaV2Err(true)
       setRecaptchaV2Msg('An error has occurred. Please check your connection and try again.')
-      console.log(`ReCAPTCHA error: ${recaptchaV2Err}`)
     }
   }
 
@@ -104,7 +123,7 @@ const ContactForm = () => {
           rows="10"
           name="message"
           value={formData.message}
-          placeholder="Talk to me!"
+          placeholder="Talk to me—in plain text, please!"
           onChange={handleFormInputChg}
         />
       </Form.Group>
@@ -131,16 +150,11 @@ const ContactForm = () => {
       >
         <ReCaptchaV2
           id="recaptcha"
-          callback={handleRecaptchaV2}
+          callback={handleRecaptchaV2Verification}
           size={EReCaptchaV2Size.Normal}
           theme={EReCaptchaV2Theme.Light}
         />
       </Form.Group>
-      {/*
-          ReCAPTCHA v2 component provides user feedback when
-          verification expires; thus, this component may be
-          unnecessary. Reaccess prior to project completion.
-      */}
       <Form.Group
         controlId="formRecaptchaV2Msg"
         className="d-flex justify-content-center"
