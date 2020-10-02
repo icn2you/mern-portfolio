@@ -2,9 +2,9 @@ const router = require('express').Router()
 const controllers = require('../../controllers')
 
 module.exports = (() => {
-  // POST operation for `/mail/contact` route
-  router.route('/')
-    .post(controllers.mailTransport.smtp.submitContact)
+  // ... operation for `/db/messages` routes
+  // router.route('/')
+  //   .get(controllers.queryManager.messages)
 
   return router
 })()

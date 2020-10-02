@@ -1,9 +1,11 @@
 const path = require('path')
 const router = require('express').Router()
-const apiRoutes = require('./api')
+const dbRoutes = require('./db')
+const mailRoutes = require('./mail')
 
 module.exports = (() => {
-  router.use('/api', apiRoutes)
+  router.use('/db', dbRoutes)
+  router.use('/mail', mailRoutes)
 
   // Send all requests to React app.
   router.use((req, res) => {
