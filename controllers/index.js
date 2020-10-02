@@ -1,5 +1,6 @@
 module.exports = (() => {
   return {
-    controller: require('./projects-controller')
+    queryManager: require('./db'),
+    mailTransport: require('./mail') 
   }
 })()
