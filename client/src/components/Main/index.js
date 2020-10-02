@@ -20,7 +20,7 @@ const Main = () => {
   }, [])
 
   const loadProjects = () => {
-    API.getProjects('active=true')
+    API.getPortfolioProjs('active=true')
       .then(res => setProjects(res))
       .catch(err => console.error(err.stack))
   }

@@ -4,11 +4,11 @@ const RECAPTCHA_SERVER_KEY =
   process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
 
 export default {
-  getProjects: (filter) => fetch(`/api/projects?${filter}`)
+  getPortfolioProjs: filter => fetch(`/api/projects?${filter}`)
     .then(resp => resp.json())
     .catch(err => console.error(err.stack)),
 
-  isVisitorHuman: (verificationKey) => fetch(
+  isVisitorHuman: verificationKey => fetch(
     'https://www.google.com/recaptcha/api/siteverify', {
       method: 'post',
       headers: {
@@ -19,5 +19,13 @@ export default {
     })
     .then(resp => resp.json())
     .then(json => json.success)
-    .catch(err => console.error(err.message))
+    .catch(err => console.error(err.message)),
+
+  sendVisitorMsg: contact => fetch('/mail/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(contact)
+  })
 }
