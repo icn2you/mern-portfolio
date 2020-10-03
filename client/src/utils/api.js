@@ -4,7 +4,7 @@ const RECAPTCHA_SERVER_KEY =
   process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
 
 export default {
-  getPortfolioProjs: filter => fetch(`/api/projects?${filter}`)
+  getPortfolioProj: filter => fetch(`/db/projects?${filter}`)
     .then(resp => resp.json())
     .catch(err => console.error(err.stack)),
 
