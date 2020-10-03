@@ -5,21 +5,26 @@ File:  index.js
 Ver.:  0.1.0 20200826 - basic form
        0.2.0 20200922 - reCAPTCHA v2
        0.3.0 20200929 - form handling
+       0.4.0 20200930 - gatekeeping
+       0.5.0 20201002 - message sanitization
 
 This script contains the ContactForm React component of my developer portfolio.
 ***********************************************************************/
 import React, { useEffect, useState } from 'react'
+import { Button, Form } from 'react-bootstrap'
 import {
   EReCaptchaV2Size, EReCaptchaV2Theme, ReCaptchaV2
 } from 'react-recaptcha-x'
-import { Button, Form } from 'react-bootstrap'
+import stripHtml from 'string-strip-html'
 import API from '../../utils/api'
 import './style.scss'
+
+const CC_EMAIL_ADDR = process.env.REACT_APP_CC_EMAIL_ADDRESS
 
 const initFormData = Object.freeze({
   name: '',
   email: '',
-  _cc: 'zerjio89@gmail.com',
+  _cc: CC_EMAIL_ADDR,
   _subject: 'Message from a Visitor to Your Dev Portfolio',
   message: ''
 })
@@ -57,6 +62,12 @@ const ContactForm = () => {
       !recaptchaV2Exp) {
       // Clear any error message.
       setRecaptchaV2Msg('')
+
+      // Strip any HTML tags from visitor's message.
+      formData.message =
+        stripHtml(formData.message, {
+          stripTogetherWithTheirContents: ['script']
+        }).result
 
       // Send visitor's message to API for routing.
       API.sendVisitorMsg(formData)
