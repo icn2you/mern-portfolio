@@ -31,10 +31,10 @@ const initFormData = Object.freeze({
 
 const ContactForm = () => {
   const [formData, setFormData] = useState(initFormData)
-  const [recaptchaV2Token, setRecaptchaV2Token] = useState('')
+  const [recaptchaV2Token, setRecaptchaV2Token] = useState(undefined)
   const [recaptchaV2Exp, setRecaptchaV2Exp] = useState(false)
   const [recaptchaV2Err, setRecaptchaV2Err] = useState(false)
-  const [recaptchaV2Msg, setRecaptchaV2Msg] = useState(null)
+  const [recaptchaV2Msg, setRecaptchaV2Msg] = useState('')
 
   useEffect(() => {
     if (recaptchaV2Token !== '') {
@@ -60,9 +60,6 @@ const ContactForm = () => {
       recaptchaV2Token.length > 0 &&
       !recaptchaV2Err &&
       !recaptchaV2Exp) {
-      // Clear any error message.
-      setRecaptchaV2Msg('')
-
       // Strip any HTML tags from visitor's message.
       formData.message =
         stripHtml(formData.message, {
@@ -76,6 +73,16 @@ const ContactForm = () => {
 
       // Clear form input.
       setFormData(initFormData)
+
+      /*
+        Reset reCAPTCHA v2 state, and clear any error message.
+
+        NOTE: Invoking reset() on the window object's grecaptcha element seems to be the only way to reset the reCAPTCHA v2 element successfully. (See https://stackoverflow.com/questions/46514194/how-to-reset-google-recaptcha-with-react-google-recaptcha/47128103#47128103.) However, I'm not sure this is the best/most elegant solution. I've tried grabbing a ref to the ReCaptchaV2 component with useRef() to no avail. This may be a limitation of the react-recaptcha-x package. (20201003)
+      */
+      window.grecaptcha.reset()
+      setRecaptchaV2Token(undefined)
+      setRecaptchaV2Exp(false)
+      setRecaptchaV2Msg('')
     } else {
       setRecaptchaV2Msg('Your message cannot be sent. Please confirm you are human using the reCAPTCHA widget above!')
     }
