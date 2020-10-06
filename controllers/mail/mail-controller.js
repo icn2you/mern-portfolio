@@ -35,16 +35,8 @@ module.exports = {
     }
 
     // Send the message.
-    smtpServer.sendMail(emailMessage, (err, res) => {
-      let msgStatus = ''
-
-      if (err) {
-        msgStatus = 'An error occurred. Please attempt to send your message again. If the problem persists, use the email link below to contact me.'
-      } else {
-        msgStatus = 'Your message was successfully sent! I\'ll be in touch soon.'
-      }
-
-      res.json({ feedback: msgStatus })
-    })
+    smtpServer.sendMail(emailMessage, (err, resp) => 
+      res.json({ status: err || true })
+    )
   }
 }
