@@ -10,7 +10,7 @@ export default {
 
   isVisitorHuman: verificationKey => fetch(
     'https://www.google.com/recaptcha/api/siteverify', {
-      method: 'post',
+      method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
@@ -28,4 +28,6 @@ export default {
     },
     body: JSON.stringify(contact)
   })
+    .then(resp => resp.json())
+    .catch(err => console.error(err.message))
 }
