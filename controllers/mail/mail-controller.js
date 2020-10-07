@@ -35,7 +35,7 @@ module.exports = {
     }
 
     // Send the message.
-    smtpServer.sendMail(emailMessage, (err, resp) => 
+    smtpServer.sendMail(emailMessage, (err, resp) =>
       res.json({ status: err || true })
     )
   }

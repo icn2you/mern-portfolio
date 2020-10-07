@@ -1,5 +1,5 @@
 module.exports = (() => {
   return {
-    smtp: require('./mail-controller') 
+    smtp: require('./mail-controller')
   }
 })()
