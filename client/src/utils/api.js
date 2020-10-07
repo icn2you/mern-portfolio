@@ -18,7 +18,6 @@ export default {
       body: `secret=${RECAPTCHA_SERVER_KEY}&response=${verificationKey}`
     })
     .then(resp => resp.json())
-    .then(json => json.success)
     .catch(err => console.error(err.message)),
 
   sendVisitorMsg: contact => fetch('/mail/contact', {
