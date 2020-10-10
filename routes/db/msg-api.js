@@ -2,9 +2,9 @@ const router = require('express').Router()
 const controllers = require('../../controllers')
 
 module.exports = (() => {
-  // ... operation for `/db/messages` routes
-  // router.route('/')
-  //   .get(controllers.queryManager.messages)
+  // POST operation for `/db/messages` route
+  router.route('/')
+    .post(controllers.queryManager.messages.create)
 
   return router
 })()
