@@ -9,7 +9,7 @@ const mongoose = require('mongoose')
 // HTTP port & MongoDB URI
 const PORT = process.env.PORT || 3001
 const MONGODB_URI =
-  process.env.MONGODB_URI || 'mongodb://localhost/devprojsdb'
+  process.env.MONGODB_URI || 'mongodb://localhost/dev_portfolio_db'
 
 // Create Express app.
 const app = express()

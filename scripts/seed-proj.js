@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const db = require('../models')
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/devprojsdb', {
+  process.env.MONGODB_URI || 'mongodb://localhost/dev_portfolio_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
