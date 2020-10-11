@@ -92,6 +92,12 @@ const ContactForm = () => {
   const handleFormSubmit = ev => {
     ev.preventDefault()
 
+    if (typeof recaptchaV2Token !== 'string') {
+      setRecaptchaV2Msg(statusMsg.tokenNeeded)
+      setRecaptchaV2MsgAdd(false)
+      return
+    }
+
     const form = ev.currentTarget
 
     if (form.checkValidity() === false) {
@@ -99,25 +105,24 @@ const ContactForm = () => {
       setRecaptchaV2Msg(statusMsg.formErr)
       setRecaptchaV2MsgAdd(false)
     } else {
-      handleSendMessage()
-    }
-
-    if (typeof recaptchaV2Token !== 'string') {
-      setRecaptchaV2Msg(statusMsg.tokenNeeded)
-      setRecaptchaV2MsgAdd(false)
-      return
+      // ASSERT: Form input is valid.
+      handleSendMsg()
     }
 
     setFormValidated(true)
   }
 
-  const handleSendMessage = () => {
-    if (!recaptchaV2Err && !recaptchaV2Exp && formValidated) {
+  const handleSendMsg = () => {
+    if (!recaptchaV2Exp && !recaptchaV2Err) {
       // Strip any HTML tags from visitor's message.
       formData.message =
         stripHtml(formData.message, {
           stripTogetherWithTheirContents: ['script']
         }).result
+
+      // Persist vesitor's message in the database.
+      API.saveVisitorMsg(formData)
+        .catch(err => console.log(err.stack))
 
       // Send visitor's message to API for routing.
       API.sendVisitorMsg(formData)
