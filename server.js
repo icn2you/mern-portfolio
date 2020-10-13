@@ -2,12 +2,14 @@ require('dotenv').config()
 
 // Node dependencies
 const express = require('express')
+const cors_proxy = require('cors-anywhere')
 const routes = require('./routes')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 
 // HTTP port & MongoDB URI
 const PORT = process.env.PORT || 3001
+const CORS = process.env.CORS || 3080
 const MONGODB_URI =
   process.env.MONGODB_URI || 'mongodb://localhost/dev_portfolio_db'
 
@@ -41,6 +43,14 @@ mongoose.connection
   .once('connected', () => {
     console.log('Successfully connected to the database.')
   })
+
+cors_proxy.createServer({
+  originWhitelist: [],
+  requireHeader: ['origin', 'x-requested-with']
+}).listen(CORS, () => {
+  console.log(
+    `🌎 ==> CORS Anywhere proxy server running on port ${CORS} ...`)
+})
 
 // Launch server and listen for requests.
 app.listen(PORT, () => {
