@@ -1,5 +1,8 @@
 require('isomorphic-fetch')
 
+const RECAPTCHA_PROXY_DOMAIN =
+  process.env.REACT_APP_PROXY_DOMAIN || 'http://localhost:3080/'
+
 const RECAPTCHA_SERVER_KEY =
   process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
 
@@ -9,7 +12,7 @@ export default {
     .catch(err => console.error(err.stack)),
 
   isVisitorHuman: verificationKey => fetch(
-    'https://www.google.com/recaptcha/api/siteverify', {
+    `${RECAPTCHA_PROXY_DOMAIN}https://www.google.com/recaptcha/api/siteverify`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
