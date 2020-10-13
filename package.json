@@ -22,10 +22,14 @@
     "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.4"
   },
+  "resolutions": {
+    "http-proxy": "1.18.1"
+  },
   "scripts": {
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
     "client": "cd client && npm run start",
+    "preinstall": "npx npm-force-resolutions",
     "install": "cd client && npm install",
     "lint": "eslint . && cd client && npm run lint",
     "seed": "node scripts/seed-projects.js",
