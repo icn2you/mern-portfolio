@@ -8,7 +8,7 @@ module.exports = (() => {
     email: { type: String, required: true },
     _cc: { type: String, required: true },
     _subject: { type: String, required: true },
-    text: { type: String, required: true } 
+    text: { type: String, required: true }
   }, { timestamps: true })
 
   return mongoose.model('Message', MessageSchema)

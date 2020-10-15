@@ -1,16 +1,16 @@
 const db = require('../../models')
 
-module.exports = { 
+module.exports = {
   create: (req, res) => {
-    const contact = req.body 
-    
-    Object.defineProperty(contact, 'text', { 
+    const contact = req.body
+
+    Object.defineProperty(contact, 'text', {
       value: contact.message,
-      enumerable: true 
+      enumerable: true
     })
-    
-    delete contact['message']
-    
+
+    delete contact.message
+
     db.Message
       .create(contact)
       .then(doc => res.json(doc))

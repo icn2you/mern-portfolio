@@ -2,7 +2,7 @@ require('dotenv').config()
 
 // Node dependencies
 const express = require('express')
-const cors_proxy = require('cors-anywhere')
+const proxy = require('cors-anywhere')
 const routes = require('./routes')
 const logger = require('morgan')
 const mongoose = require('mongoose')
@@ -44,7 +44,7 @@ mongoose.connection
     console.log('Successfully connected to the database.')
   })
 
-cors_proxy.createServer({
+proxy.createServer({
   originWhitelist: [],
   requireHeader: ['origin', 'x-requested-with']
 }).listen(CORS, () => {
