@@ -1,11 +1,10 @@
-const mongoose = require('mongoose')
-const db = require('../models')
+require('dotenv').config()
 
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/dev_portfolio_db', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+const mongoose = require('mongoose')
+const database = require('../models')
+
+const MONGODB_URI =
+  process.env.MONGODB_URI_ADMIN || 'mongodb://localhost/dev_portfolio_db'
 
 const projects = [
   {
@@ -154,15 +153,37 @@ const projects = [
   }
 ]
 
-db.Project
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+
+mongoose.connection
+  .on('error', console.error.bind(
+    console, 'An error was encountered connection to the database.'
+  ))
+  .once('connected', () => {
+    console.log('Connection to the database open ...')
+  })
+
+database.Project
   .deleteMany({})
-  .then(() => db.Project.collection.insertMany(projects))
+  .then(() => database.Project.collection.insertMany(projects))
   .then(data => {
     console.log(
       `${data.result.n} documents inserted into the database!`)
-    process.exit(0)
+
+    mongoose.connection.close(() => {
+      console.log('Connection to the database closed.')
+      process.exit(0)
+    })
   })
   .catch(err => {
+    mongoose.connection.close(() => {
+      console.log('Connection to the database closed.')
+    })
+
     console.error(err.stack)
+
     process.exit(1)
   })
