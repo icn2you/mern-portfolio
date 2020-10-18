@@ -14,6 +14,8 @@ mongoose.connection
     console, 'An error was encountered connecting to MongoDB Atlas.'
   ))
   .once('connected', () => {
-    console.log('Successfully connected to MongoDB Atlas!')
+    console.log('Connection to MongoDB Atlas opened!')
   })
-  .close()
+  .close(() => {
+    console.log('Connection to MongoDB Atlas closed.')
+  })
