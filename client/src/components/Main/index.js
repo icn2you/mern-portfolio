@@ -21,7 +21,14 @@ const Main = () => {
 
   const loadProjects = () => {
     API.getPortfolioProj('active=true')
-      .then(res => setProjects(res))
+      .then(res => {
+        // Verify that API did not return an error message from MongoDB.
+        if (typeof res === 'string') {
+          console.error(res)
+        } else {
+          setProjects(res)
+        }
+      })
       .catch(err => console.error(err.stack))
   }
 
@@ -51,7 +58,7 @@ const Main = () => {
                       tech={project.technologiesUsed}
                     />
                   )
-                  : ''
+                  : 'My projects cannot be displayed at this time due to an issue with the database. Please check back again soon.'
                 }
               </div>
             </Col>
