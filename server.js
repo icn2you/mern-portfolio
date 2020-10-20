@@ -32,17 +32,15 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes)
 
 // Connect to database.
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-
 mongoose.connection
   .on('error', console.error.bind(
     console, 'An error was encountered connecting to the database.'))
-  .once('connected', () => {
+  .on('connected', () => {
     console.log('Successfully connected to the database.')
   })
+
+mongoose.connect(MONGODB_URI,
+  { useNewUrlParser: true, useUnifiedTopology: true })
 
 proxy.createServer({
   originWhitelist: [],
