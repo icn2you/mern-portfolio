@@ -3,6 +3,7 @@ require('dotenv').config()
 // Node dependencies
 const express = require('express')
 const proxy = require('cors-anywhere')
+const path = require('path')
 const routes = require('./routes')
 const logger = require('morgan')
 const mongoose = require('mongoose')
@@ -25,7 +26,7 @@ app.use(logger('dev'))
 
 // Serve static assets on production server.
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'))
+  app.use(express.static(path.join(__dirname, 'client', 'build')))
 }
 
 // Use app routes.
@@ -48,6 +49,10 @@ proxy.createServer({
 }).listen(CORS, () => {
   console.log(
     `🌎 ==> CORS Anywhere proxy server running on port ${CORS} ...`)
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 })
 
 // Launch server and listen for requests.
