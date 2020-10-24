@@ -39,7 +39,7 @@ div {
         background-image: var(--project-sprite);
         background-position: -5px -5px;
 
-        &.photo-box:hover {
+        &:hover {
           background-position: -515px -5px;  
           cursor: pointer;
         }
