@@ -35,9 +35,8 @@ const statusMsg = {
   bot: 'Silly, bot! Messages are for humans.',
   human: 'You appear to be human! You may proceed.',
   genErr: 'An error occurred. Please attempt to send your message again.',
-  connErr: 'An error has occurred. Please check your connection and try again.',
+  connErr: 'An error has occurred. Please wait a moment, and then try again.',
   formErr: 'Your message cannot be sent. Please resolve the errors above and attempt to send your message again.',
-  networkErr: 'A network error occurred. Please attempt to verify again.',
   errAdd: 'If the problem persists, use the email link below to contact me.',
   contactMade: 'Your message was successfully sent! I\'ll be in touch soon.',
   tokenExpired: 'Your verification has expired. Please check the reCAPTCHA checkbox again.',
@@ -57,12 +56,12 @@ const ContactForm = () => {
     if (typeof recaptchaV2Token === 'string') {
       // ASSERT: We have a token to send to Google's SiteVerify.
       API.isVisitorHuman(recaptchaV2Token)
-        .then((res) => {
+        .then(res => {
           if (res === undefined) {
             // ASSERT: API returned undefined, which means fetch failed.
-            window.grecaptcha.reset()
-            setRecaptchaV2Token(undefined)
-            setRecaptchaV2Msg(statusMsg.networkErr)
+            // window.grecaptcha.reset()
+            // setRecaptchaV2Token(undefined)
+            setRecaptchaV2Msg(statusMsg.connErr)
             setRecaptchaV2MsgAdd(true)
           } else if (!res.success) {
             // ASSERT: User appears to be non-human.
@@ -138,7 +137,7 @@ const ContactForm = () => {
             */
             setFormValidated(false)
             window.grecaptcha.reset()
-            setRecaptchaV2Token(undefined)
+            // setRecaptchaV2Token(undefined)
             setRecaptchaV2Msg(statusMsg.contactMade)
             setRecaptchaV2MsgAdd(false)
           } else {
