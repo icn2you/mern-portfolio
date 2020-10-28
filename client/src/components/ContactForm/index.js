@@ -57,6 +57,10 @@ const ContactForm = () => {
       // ASSERT: We have a token to send to Google's SiteVerify.
       API.isVisitorHuman(recaptchaV2Token)
         .then(res => {
+          // DEBUG:
+          console.log(`Response from API: 
+            ${JSON.stringify(res)}`)
+
           if (res === undefined) {
             // ASSERT: API returned undefined, which means fetch failed.
             // window.grecaptcha.reset()
@@ -78,6 +82,14 @@ const ContactForm = () => {
         .catch(err => console.error(err.stack))
     }
   }, [recaptchaV2Token])
+
+  // DEBUG:
+  useEffect(() => {
+    console.log(
+      `recaptchaV2Token is ${typeof recaptchaV2Token === 'string' ? ' ' : 'not '}a string.`)
+    console.log(`recaptchaV2Exp = ${recaptchaV2Exp}`)
+    console.log(`recaptchaV2Err = ${recaptchaV2Err}`)
+  }, [recaptchaV2Token, recaptchaV2Exp, recaptchaV2Err])
 
   const handleFormInputChg = ev => {
     const { name, value } = ev.target
