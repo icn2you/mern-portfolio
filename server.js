@@ -43,6 +43,7 @@ mongoose.connection
 mongoose.connect(MONGODB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true })
 
+// Create CORS proxy server.
 proxy.createServer({
   originWhitelist: [],
   requireHeader: ['origin', 'x-requested-with']
@@ -51,6 +52,7 @@ proxy.createServer({
     `🌎 ==> CORS Anywhere proxy server running on port ${CORS} ...`)
 })
 
+// Create fail-safe route handler.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 })
