@@ -49,6 +49,7 @@ const ContactForm = () => {
   const [recaptchaV2Token, setRecaptchaV2Token] = useState(undefined)
   const [recaptchaV2Exp, setRecaptchaV2Exp] = useState(false)
   const [recaptchaV2Err, setRecaptchaV2Err] = useState(false)
+  const [recaptchaV2Human, setRecaptchaV2Human] = useState(false)
   const [recaptchaV2Msg, setRecaptchaV2Msg] = useState('')
   const [recaptchaV2MsgAdd, setRecaptchaV2MsgAdd] = useState(false)
 
@@ -58,8 +59,7 @@ const ContactForm = () => {
       API.isVisitorHuman(recaptchaV2Token)
         .then(res => {
           // DEBUG:
-          console.log(`Response from API: 
-            ${JSON.stringify(res)}`)
+          console.log(`Response from API:\n${JSON.stringify(res)}`)
 
           if (res === undefined) {
             // ASSERT: API returned undefined, which means fetch failed.
@@ -75,6 +75,7 @@ const ContactForm = () => {
             setRecaptchaV2MsgAdd(false)
           } else {
             // ASSERT: User appears to be human.
+            setRecaptchaV2Human(true)
             setRecaptchaV2Msg(statusMsg.human)
             setRecaptchaV2MsgAdd(false)
           }
@@ -124,7 +125,7 @@ const ContactForm = () => {
   }
 
   const handleSendMsg = () => {
-    if (!recaptchaV2Exp && !recaptchaV2Err) {
+    if (recaptchaV2Human && !recaptchaV2Exp && !recaptchaV2Err) {
       // Strip any HTML tags from visitor's message.
       formData.message =
         stripHtml(formData.message, {
