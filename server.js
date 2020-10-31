@@ -43,14 +43,17 @@ mongoose.connection
 mongoose.connect(MONGODB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true })
 
-// Create CORS proxy server.
-proxy.createServer({
-  originWhitelist: [],
-  requireHeader: ['origin', 'x-requested-with']
-}).listen(CORS, () => {
-  console.log(
-    `🌎 ==> CORS Anywhere proxy server running on port ${CORS} ...`)
-})
+// (Only create proxy if we're in development.)
+if (process.env.NODE_ENV !== 'production') {
+  // Create CORS proxy server.
+  proxy.createServer({
+    originWhitelist: [],
+    requireHeader: ['origin', 'x-requested-with']
+  }).listen(CORS, () => {
+    console.log(
+      `🌎 ==> CORS Anywhere proxy server running on port ${CORS} ...`)
+  })
+}
 
 // Create fail-safe route handler.
 app.get('*', (req, res) => {
