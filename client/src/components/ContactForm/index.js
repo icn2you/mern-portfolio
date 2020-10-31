@@ -46,12 +46,12 @@ const statusMsg = {
 const ContactForm = () => {
   const [formData, setFormData] = useState(initFormData)
   const [formValidated, setFormValidated] = useState(false)
+  const [recaptchaV2Human, setRecaptchaV2Human] = useState(false)
   const [recaptchaV2Token, setRecaptchaV2Token] = useState(undefined)
   const [recaptchaV2Exp, setRecaptchaV2Exp] = useState(false)
   const [recaptchaV2Err, setRecaptchaV2Err] = useState(false)
-  const [recaptchaV2Human, setRecaptchaV2Human] = useState(false)
   const [recaptchaV2Msg, setRecaptchaV2Msg] = useState('')
-  const [recaptchaV2MsgAdd, setRecaptchaV2MsgAdd] = useState(false)
+  const [recaptchaV2Add, setRecaptchaV2Add] = useState(false)
 
   useEffect(() => {
     if (typeof recaptchaV2Token === 'string') {
@@ -59,38 +59,39 @@ const ContactForm = () => {
       API.isVisitorHuman(recaptchaV2Token)
         .then(res => {
           // DEBUG:
-          console.log(`Response from API:\n${JSON.stringify(res)}`)
+          // console.log(`Response from API:\n${JSON.stringify(res)}`)
 
           if (res === undefined) {
             // ASSERT: API returned undefined, which means fetch failed.
             // window.grecaptcha.reset()
             // setRecaptchaV2Token(undefined)
             setRecaptchaV2Msg(statusMsg.connErr)
-            setRecaptchaV2MsgAdd(true)
+            setRecaptchaV2Add(true)
           } else if (!res.success) {
             // ASSERT: User appears to be non-human.
             setRecaptchaV2Token(undefined)
             setRecaptchaV2Err(true)
             setRecaptchaV2Msg(statusMsg.bot)
-            setRecaptchaV2MsgAdd(false)
+            setRecaptchaV2Add(false)
           } else {
             // ASSERT: User appears to be human.
             setRecaptchaV2Human(true)
             setRecaptchaV2Msg(statusMsg.human)
-            setRecaptchaV2MsgAdd(false)
+            setRecaptchaV2Add(false)
           }
         })
         .catch(err => console.error(err.stack))
     }
   }, [recaptchaV2Token])
 
-  // DEBUG:
+  /* DEBUG:
   useEffect(() => {
     console.log(
       `recaptchaV2Token is ${typeof recaptchaV2Token === 'string' ? ' ' : 'not '}a string.`)
     console.log(`recaptchaV2Exp = ${recaptchaV2Exp}`)
     console.log(`recaptchaV2Err = ${recaptchaV2Err}`)
   }, [recaptchaV2Token, recaptchaV2Exp, recaptchaV2Err])
+  */
 
   const handleFormInputChg = ev => {
     const { name, value } = ev.target
@@ -106,7 +107,7 @@ const ContactForm = () => {
 
     if (typeof recaptchaV2Token !== 'string') {
       setRecaptchaV2Msg(statusMsg.tokenNeeded)
-      setRecaptchaV2MsgAdd(false)
+      setRecaptchaV2Add(false)
       return
     }
 
@@ -115,7 +116,7 @@ const ContactForm = () => {
     if (form.checkValidity() === false) {
       ev.stopPropagation()
       setRecaptchaV2Msg(statusMsg.formErr)
-      setRecaptchaV2MsgAdd(false)
+      setRecaptchaV2Add(false)
     } else {
       // ASSERT: Form input is valid.
       handleSendMsg()
@@ -151,11 +152,12 @@ const ContactForm = () => {
             setFormValidated(false)
             window.grecaptcha.reset()
             // setRecaptchaV2Token(undefined)
+            setRecaptchaV2Human(false)
             setRecaptchaV2Msg(statusMsg.contactMade)
-            setRecaptchaV2MsgAdd(false)
+            setRecaptchaV2Add(false)
           } else {
             setRecaptchaV2Msg(statusMsg.genErr)
-            setRecaptchaV2MsgAdd(true)
+            setRecaptchaV2Add(true)
           }
         })
         .catch(err => console.error(err.stack))
@@ -170,11 +172,11 @@ const ContactForm = () => {
     } else if (typeof token === 'boolean' && !token) {
       setRecaptchaV2Exp(true)
       setRecaptchaV2Msg(statusMsg.tokenExpired)
-      setRecaptchaV2MsgAdd(false)
+      setRecaptchaV2Add(false)
     } else if (token instanceof Error) {
       setRecaptchaV2Err(true)
       setRecaptchaV2Msg(statusMsg.connErr)
-      setRecaptchaV2MsgAdd(true)
+      setRecaptchaV2Add(true)
     }
   }
 
@@ -270,7 +272,7 @@ const ContactForm = () => {
       >
         <Form.Text id="recaptcha-v2-msg" muted>
           <div>{ recaptchaV2Msg }</div>
-          { recaptchaV2MsgAdd
+          { recaptchaV2Add
             ? <div>{ statusMsg.errAdd }</div>
             : ''
           }
