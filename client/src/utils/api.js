@@ -1,10 +1,7 @@
 require('isomorphic-fetch')
 
-const RECAPTCHA_PROXY_DOMAIN =
-  process.env.REACT_APP_PROXY_DOMAIN || 'http://localhost:3002/'
-
-const RECAPTCHA_SERVER_KEY =
-  process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
+const RECAPTCHA_PROXY_DOMAIN = process.env.REACT_APP_PROXY_DOMAIN
+const RECAPTCHA_SERVER_KEY = process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
 
 export default {
   getPortfolioProj: filter => fetch(`/db/projects?${filter}`)
