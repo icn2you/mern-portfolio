@@ -4,8 +4,8 @@ const RECAPTCHA_PROXY_DOMAIN = process.env.REACT_APP_PROXY_DOMAIN ||
   'https://cors-anywhere.herokuapp.com/'
 const RECAPTCHA_SERVER_KEY = process.env.REACT_APP_REACAPTCH_V2_SERVER_KEY
 
-// DEBUG: 
-console.log(`RECAPTCHA_PROXY_DOMAIN = ${RECAPTCHA_PROXY_DOMAIN}`)
+// DEBUG:
+// console.log(`RECAPTCHA_PROXY_DOMAIN = ${RECAPTCHA_PROXY_DOMAIN}`)
 
 export default {
   getPortfolioProj: filter => fetch(`/db/projects?${filter}`)

@@ -59,7 +59,7 @@ const ContactForm = () => {
       API.isVisitorHuman(recaptchaV2Token)
         .then(res => {
           // DEBUG:
-          console.log(`Response from API:\n${JSON.stringify(res)}`)
+          // console.log(`Response from API:\n${JSON.stringify(res)}`)
 
           if (res === undefined) {
             // ASSERT: API returned undefined, which means fetch failed.
@@ -84,13 +84,14 @@ const ContactForm = () => {
     }
   }, [recaptchaV2Token])
 
-  /* DEBUG: */
+  /* DEBUG:
   useEffect(() => {
     console.log(
       `recaptchaV2Token is ${typeof recaptchaV2Token === 'string' ? ' ' : 'not '}a string.`)
     console.log(`recaptchaV2Exp = ${recaptchaV2Exp}`)
     console.log(`recaptchaV2Err = ${recaptchaV2Err}`)
   }, [recaptchaV2Token, recaptchaV2Exp, recaptchaV2Err])
+   */
 
   const handleFormInputChg = ev => {
     const { name, value } = ev.target
