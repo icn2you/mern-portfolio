@@ -21,7 +21,6 @@
   "homepage": "https://github.com/icn2you/mern-portfolio#readme",
   "main": "server.js",
   "dependencies": {
-    "cors-anywhere": "^0.4.3",
     "cross-fetch": "^3.0.6",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
