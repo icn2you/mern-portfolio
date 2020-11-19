@@ -9,6 +9,7 @@ Ver.:  0.1.0 20200826 - basic form
        0.5.0 20201002 - message sanitization
        0.6.0 20201003 - reCAPTCHA v2 reset
        0.7.0 20201006 - form validation
+       1.0.0 20201118 - PRODUCTION RELEASE
 
 This script contains the ContactForm React component of my developer portfolio.
 ***********************************************************************/
@@ -21,12 +22,9 @@ import stripHtml from 'string-strip-html'
 import API from '../../utils/api'
 import './style.scss'
 
-const CC_EMAIL_ADDR = process.env.REACT_APP_CC_EMAIL_ADDRESS
-
 const initFormData = Object.freeze({
   name: '',
   email: '',
-  _cc: CC_EMAIL_ADDR,
   _subject: 'Message from a Visitor to Your Dev Portfolio',
   message: ''
 })
@@ -48,6 +46,7 @@ const ContactForm = () => {
   const [formValidated, setFormValidated] = useState(false)
   const [recaptchaV2Human, setRecaptchaV2Human] = useState(false)
   const [recaptchaV2Token, setRecaptchaV2Token] = useState(undefined)
+  const [recaptchaV2Show, setRecaptchaV2Show] = useState(true)
   const [recaptchaV2Exp, setRecaptchaV2Exp] = useState(false)
   const [recaptchaV2Err, setRecaptchaV2Err] = useState(false)
   const [recaptchaV2Msg, setRecaptchaV2Msg] = useState('')
@@ -55,16 +54,10 @@ const ContactForm = () => {
 
   useEffect(() => {
     if (typeof recaptchaV2Token === 'string') {
-      // ASSERT: We have a token to send to Google's SiteVerify.
-      API.isVisitorHuman(recaptchaV2Token)
+      API.verifyVisitor(recaptchaV2Token)
         .then(res => {
-          // DEBUG:
-          // console.log(`Response from API:\n${JSON.stringify(res)}`)
-
           if (res === undefined) {
             // ASSERT: API returned undefined, which means fetch failed.
-            // window.grecaptcha.reset()
-            // setRecaptchaV2Token(undefined)
             setRecaptchaV2Msg(statusMsg.connErr)
             setRecaptchaV2Add(true)
           } else if (!res.success) {
@@ -83,15 +76,6 @@ const ContactForm = () => {
         .catch(err => console.error(err.stack))
     }
   }, [recaptchaV2Token])
-
-  /* DEBUG:
-  useEffect(() => {
-    console.log(
-      `recaptchaV2Token is ${typeof recaptchaV2Token === 'string' ? ' ' : 'not '}a string.`)
-    console.log(`recaptchaV2Exp = ${recaptchaV2Exp}`)
-    console.log(`recaptchaV2Err = ${recaptchaV2Err}`)
-  }, [recaptchaV2Token, recaptchaV2Exp, recaptchaV2Err])
-   */
 
   const handleFormInputChg = ev => {
     const { name, value } = ev.target
@@ -133,7 +117,7 @@ const ContactForm = () => {
           stripTogetherWithTheirContents: ['script']
         }).result
 
-      // Persist vesitor's message in the database.
+      // Persist visitor's message in the database.
       API.saveVisitorMsg(formData)
         .catch(err => console.log(err.stack))
 
@@ -144,17 +128,13 @@ const ContactForm = () => {
             // Clear form input.
             setFormData(initFormData)
 
-            /*
-              Reset reCAPTCHA v2 state.
-
-              NOTE: Invoking reset() on the window object's grecaptcha element seems to be the only way to reset the reCAPTCHA v2 element successfully. (See https://stackoverflow.com/questions/46514194/how-to-reset-google-recaptcha-with-react-google-recaptcha/47128103#47128103.) However, I'm not sure this is the best/most elegant solution. I've tried grabbing a ref to the ReCaptchaV2 component with useRef() to no avail. This may be a limitation of the react-recaptcha-x package. (20201003)
-            */
+            // Reset reCAPTCHA v2 widget and state.
             setFormValidated(false)
-            window.grecaptcha.reset()
-            // setRecaptchaV2Token(undefined)
+            setRecaptchaV2Show(false)
             setRecaptchaV2Human(false)
             setRecaptchaV2Msg(statusMsg.contactMade)
             setRecaptchaV2Add(false)
+            setRecaptchaV2Show(true)
           } else {
             setRecaptchaV2Msg(statusMsg.genErr)
             setRecaptchaV2Add(true)
@@ -215,11 +195,6 @@ const ContactForm = () => {
       </Form.Group>
       <Form.Control
         type="hidden"
-        name="_cc"
-        value={formData._cc}
-      />
-      <Form.Control
-        type="hidden"
         name="_subject"
         value={formData._subject}
       />
@@ -259,12 +234,15 @@ const ContactForm = () => {
         controlId="formRecaptchaV2"
         className="d-flex justify-content-center pt-4"
       >
-        <ReCaptchaV2
-          id="recaptcha"
-          callback={handleRecaptchaV2Verification}
-          size={EReCaptchaV2Size.Normal}
-          theme={EReCaptchaV2Theme.Light}
-        />
+        { recaptchaV2Show
+          ? <ReCaptchaV2
+            id="recaptcha"
+            callback={handleRecaptchaV2Verification}
+            size={EReCaptchaV2Size.Normal}
+            theme={EReCaptchaV2Theme.Light}
+          />
+          : null
+        }
       </Form.Group>
       <Form.Group
         controlId="formRecaptchaV2Msg"
