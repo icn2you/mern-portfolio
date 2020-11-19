@@ -1,4 +1,4 @@
-require('isomorphic-fetch')
+const fetch = require('cross-fetch')
 
 export default {
   getPortfolioProj: filter => fetch(`/db/projects?${filter}`)
