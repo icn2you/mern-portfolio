@@ -1,6 +1,9 @@
 const nodemailer = require('nodemailer')
 
-const { GMAIL_ACCTNAME, GMAIL_USERNAME, GMAIL_PASSWORD } = process.env
+const {
+  GMAIL_ACCT_NAME, GMAIL_USERNAME, GMAIL_PASSWORD,
+  CC_ACCT_NAME, CC_USERNAME
+} = process.env
 
 module.exports = {
   submitContact: (req, res) => {
@@ -18,8 +21,8 @@ module.exports = {
     // Format the message.
     const emailMessage = {
       from: `'${req.body.name} <${req.body.email}>'`,
-      to: `'${GMAIL_ACCTNAME} <${GMAIL_USERNAME}>'`,
-      cc: req.body._cc,
+      to: `'${GMAIL_ACCT_NAME} <${GMAIL_USERNAME}>'`,
+      cc: `'${CC_ACCT_NAME} <${CC_USERNAME}>'`,
       replyTo: `'${req.body.name} <${req.body.email}>'`,
       subject: req.body._subject,
       html:
