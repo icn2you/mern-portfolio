@@ -9,7 +9,7 @@ const MONGODB_URI =
 const projects = [
   {
     title: 'Canine Hangman',
-    url: 'https://christopherzenner.dev/fsf-a03/',
+    url: 'https://icn2you.github.io/fsf-a03/',
     repo: 'https://github.com/icn2you/fsf-a03',
     imagePath: '/static/media/word-guess-sprite.0d6088ba.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
@@ -21,7 +21,7 @@ const projects = [
   },
   {
     title: 'Crystals Collector',
-    url: 'https://christopherzenner.dev/fsf-a04/',
+    url: 'https://icn2you.github.io/fsf-a04/',
     repo: 'https://github.com/icn2you/fsf-a04',
     imagePath: '/static/media/crystals-collector-sprite.b539ecda.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
@@ -33,7 +33,7 @@ const projects = [
   },
   {
     title: 'Real Wonder Women Trivia',
-    url: 'https://christopherzenner.dev/fsf-a05/',
+    url: 'https://icn2you.github.io/fsf-a05/',
     repo: 'https://github.com/icn2you/fsf-a05',
     imagePath: '/static/media/woman-trivia-sprite.7b8913ea.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
@@ -45,7 +45,7 @@ const projects = [
   },
   {
     title: 'GIF-tastic',
-    url: 'https://christopherzenner.dev/fsf-a06/',
+    url: 'https://icn2you.github.io/fsf-a06/',
     repo: 'https://github.com/icn2you/fsf-a06',
     imagePath: '/static/media/gif-tastic-sprite.11af8482.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
@@ -57,7 +57,7 @@ const projects = [
   },
   {
     title: 'Multiplayer RPS',
-    url: 'https://christopherzenner.dev/fsf-a07/',
+    url: 'https://icn2you.github.io/fsf-a07/',
     repo: 'https://github.com/icn2you/fsf-a07',
     imagePath: '/static/media/rps-multiplayer-sprite.b5c891b2.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
@@ -117,7 +117,7 @@ const projects = [
   },
   {
     title: 'CookQuik',
-    url: 'https://christopherzenner.dev/fsf-p01/',
+    url: 'https://icn2you.github.io/fsf-p01/',
     repo: 'https://github.com/icn2you/fsf-p01',
     imagePath: '/static/media/cookquik-sprite.f94392de.png',
     programmingLangs: ['HTML', 'CSS', 'JavaScript (ES6)'],
