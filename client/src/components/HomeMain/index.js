@@ -4,15 +4,16 @@ Date:  08/26/2020
 File:  index.js
 Ver.:  0.1.0 20200826
        0.2.0 20200915
+       0.3.0 20201124
 
-This script contains the Main React component of my developer portfolio.
+This script contains the HomeMain React component of my developer portfolio.
 ***********************************************************************/import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { ContactForm, Project } from '../'
+import { ContactForm, Project } from '..'
 import API from '../../utils/api'
 import './style.scss'
 
-const Main = () => {
+const HomeMain = () => {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
@@ -83,4 +84,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default HomeMain
