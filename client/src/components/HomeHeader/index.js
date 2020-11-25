@@ -4,16 +4,17 @@ Date:  08/26/2020
 File:  index.js
 Ver.:  0.1.0 20200826
        0.2.0 20200915
+       0.3.0 20201124
 
-This script contains the Header React component of my developer
+This script contains the HomeHeader React component of my developer
 portfolio.
 ***********************************************************************/
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { Intro, NavBar, Portrait } from '../../components'
+import { Intro, NavBar, Portrait } from '..'
 import './style.scss'
 
-const Header = () => {
+const HomeHeader = () => {
   return (
     <header>
       <div id="intro-container" className="skewed-container">
@@ -42,4 +43,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HomeHeader
