@@ -4,13 +4,14 @@ Date:  08/26/2020
 File:  index.js
 Ver.:  0.1.0 20200826
        0.2.0 20200915
+       0.3.0 20201124
 
-This script contains the Footer React component of my developer
+This script contains the HomeFooter React component of my developer
 portfolio.
 ***********************************************************************/
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { Biosketch, Copyright, Quote, SocialMedia } from '../'
+import { Biosketch, Copyright, Quote, SocialMedia } from '..'
 import './style.scss'
 
 const socialMediaProfiles = [
@@ -41,7 +42,7 @@ const socialMediaProfiles = [
   }
 ]
 
-const Footer = () => {
+const HomeFooter = () => {
   return (
     <footer>
       <div id="about-me-container" className="skewed-container">
@@ -72,4 +73,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default HomeFooter
