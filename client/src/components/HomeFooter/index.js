@@ -12,35 +12,8 @@ portfolio.
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Biosketch, Copyright, Quote, SocialMedia } from '..'
+import socialMediaProfiles from '../../data/social-media.json'
 import './style.scss'
-
-const socialMediaProfiles = [
-  {
-    label: 'Email',
-    icon: 'envelope',
-    link: 'mailto:christopher.zenner@differentdrummer.dev?subject=Message&nbsp;from&nbsp;a&nbsp;Visitor&nbsp;to&nbsp;Your&nbsp;Dev&nbsp;Portfolio'
-  },
-  {
-    label: 'Résumé',
-    icon: 'file-word',
-    link: 'https://drive.google.com/file/d/16f1ij1jwi_jEuPEcyCHgfz3A2673DshP/view?usp=sharing'
-  },
-  {
-    label: 'GitHub',
-    icon: 'github',
-    link: 'https://github.com/icn2you'
-  },
-  {
-    label: 'LinkedIn',
-    icon: 'linkedin-in',
-    link: 'https://www.linkedin.com/in/icn2you/'
-  },
-  {
-    label: 'Twitter',
-    icon: 'twitter',
-    link: 'https://twitter.com/icn2you'
-  }
-]
 
 const HomeFooter = () => {
   return (
