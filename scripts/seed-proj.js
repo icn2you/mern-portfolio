@@ -64,7 +64,7 @@ const projects = [
     technologiesUsed: ['Firebase', 'jQuery'],
     completionDate: new Date(2020, 3, 28),
     projectType: 'individual',
-    starred: false,
+    starred: true,
     active: true
   },
   {
@@ -76,7 +76,7 @@ const projects = [
     technologiesUsed: ['Express', 'Handlebars', 'Node', 'jQuery'],
     completionDate: new Date(2020, 5, 9),
     projectType: 'individual',
-    starred: false,
+    starred: true,
     active: true
   },
   {
@@ -88,7 +88,7 @@ const projects = [
     technologiesUsed: ['MongoDB', 'Express', 'Handlebars', 'Node'],
     completionDate: new Date(2020, 7, 11),
     projectType: 'individual',
-    starred: false,
+    starred: true,
     active: true
   },
   {
@@ -112,7 +112,7 @@ const projects = [
     technologiesUsed: ['MongoDB', 'Express', 'React', 'Node'],
     completionDate: new Date(2020, 7, 23),
     projectType: 'individual',
-    starred: false,
+    starred: true,
     active: true
   },
   {
@@ -124,7 +124,7 @@ const projects = [
     technologiesUsed: ['API', 'Webpack', 'jQuery'],
     completionDate: new Date(2020, 4, 4),
     projectType: 'group',
-    starred: false,
+    starred: true,
     active: true
   },
   {
@@ -136,7 +136,7 @@ const projects = [
     technologiesUsed: ['MySQL', 'Express', 'Handlebars', 'Node'],
     completionDate: new Date(2020, 5, 31),
     projectType: 'group',
-    starred: false,
+    starred: true,
     active: true
   },
   {
