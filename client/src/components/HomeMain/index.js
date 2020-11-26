@@ -7,39 +7,19 @@ Ver.:  0.1.0 20200826
        0.3.0 20201124
 
 This script contains the HomeMain React component of my developer portfolio.
-***********************************************************************/import React, { useEffect, useState } from 'react'
+***********************************************************************/import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { ContactForm, Project } from '..'
-import API from '../../utils/api'
 import './style.scss'
 
-const HomeMain = () => {
-  const [projects, setProjects] = useState([])
-
-  useEffect(() => {
-    loadProjects()
-  }, [])
-
-  const loadProjects = () => {
-    API.getPortfolioProj('active=true')
-      .then(res => {
-        // Verify that API did not return an error message from MongoDB.
-        if (typeof res === 'string') {
-          console.error(res)
-        } else {
-          setProjects(res)
-        }
-      })
-      .catch(err => console.error(err.stack))
-  }
-
+const HomeMain = ({ projects }) => {
   return (
     <main>
       <div id="projects-container" className="skewed-container">
         <Container>
           <Row>
             <Col xs={12}>
-              <h1 id="portfolio">Portfolio</h1>
+              <h1 id="pinned-projects">Pinned Projects</h1>
             </Col>
           </Row>
           <Row>
