@@ -50,12 +50,14 @@ const NavBar = () => {
         { window.location.pathname === '/'
           // Display home page navigation.
           ? links.filter(link =>
-            link.pages === 'home' || link.pages === 'both').map(link =>
-            <li><a href={link.href}>{link.label}</a></li>)
+            link.pages === 'home' || link.pages === 'both'
+          ).map((link, index) =>
+            <li key={index}><a href={link.href}>{link.label}</a></li>)
           // Display portfolio page naviation.
           : links.filter(link =>
-            link.pages === 'port' || link.pages === 'both').map(link =>
-            <li><a href={link.href}>{link.label}</a></li>)
+            link.pages === 'port' || link.pages === 'both'
+          ).map((link, index) =>
+            <li key={index}><a href={link.href}>{link.label}</a></li>)
         }
       </ul>
     </nav>
