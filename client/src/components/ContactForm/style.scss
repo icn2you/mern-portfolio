@@ -30,21 +30,6 @@ form {
     }
   }
 
-  .btn {
-    /*
-      NOTE: The `border-radius` setting is **not** a mistake. It is set
-            so to ensure the button always have a consistent pill shape.
-            Thanks to Chad Ostrowski for [this idea][pill-btn-url].
-
-      [pill-btn-url]: https://bits.theorem.co/css-pro-tips-responsive-font-sizes-and-when-to-use-which-units/
-    */
-    border-radius: 1000px;
-    font-weight: 700;
-    margin: 0 0.3125rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .btn-outline-submit {
     border-color: snorkel.$classic-blue;
     color: snorkel.$classic-blue;
