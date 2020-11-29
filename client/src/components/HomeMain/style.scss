@@ -9,11 +9,27 @@ This SCSS specifies the layout and style for the HomeMain React
 component of my developer portfolio.
 ***********************************************************************/
 @use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+@use '../../assets/styles/colors/portfolio-colors' as colors;
 @use '../../assets/styles/mixins/razor-edge-container' as container;
 
 main {
   #projects-container {
     margin-bottom: 15rem;
+
+    #porfolio-button {
+      margin-top: 5rem;
+
+      .btn-outline-portfolio {
+        background-color: colors.$slightly-gray;
+        border-color: snorkel.$pirate-black;
+        color: snorkel.$pirate-black;
+      
+        &:active, &:focus, &:hover {
+          background-color: snorkel.$pirate-black;
+          color: white;
+        }
+      }
+    }
   }
 
   #contact-form-container {

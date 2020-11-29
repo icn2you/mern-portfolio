@@ -8,7 +8,7 @@ Ver.:  0.1.0 20200826
 
 This script contains the HomeMain React component of my developer portfolio.
 ***********************************************************************/import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import { ContactForm, Project } from '..'
 import './style.scss'
 
@@ -42,6 +42,13 @@ const HomeMain = ({ projects }) => {
                   : 'My projects cannot be displayed at this time due to an issue with the database. Please check back again soon.'
                 }
               </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} id="porfolio-button" className="text-center">
+              <Button href="/portfolio" variant="outline-portfolio">
+                Complete Portfolio
+              </Button>
             </Col>
           </Row>
         </Container>
