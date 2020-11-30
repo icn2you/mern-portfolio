@@ -1,0 +1,35 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  11/23/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20201123
+
+This SCSS specifies the layout and style for the SiteFooter React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+
+footer.site {
+  background: snorkel.$pirate-black;
+  
+  a {
+    color: inherit;
+
+    &:active, &:focus, &:hover {
+      color: white;
+      text-decoration: inherit;
+    }
+  }
+
+  .social-media {
+    display: inline-block;
+    font-size: 1rem;
+    /* margin: 2rem 1rem; */
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+  svg {
+    margin-right: 0.5rem;
+  }
+
+}
