@@ -1,7 +1,10 @@
 // primary components
-export { default as Header } from './Header'
-export { default as Main } from './Main'
-export { default as Footer } from './Footer'
+export { default as HomeHeader } from './HomeHeader'
+export { default as HomeMain } from './HomeMain'
+export { default as HomeFooter } from './HomeFooter'
+export { default as SiteHeader } from './SiteHeader'
+export { default as SiteFooter } from './SiteFooter'
+export { default as PortfolioMain } from './PortfolioMain'
 
 // secondary components
 export { default as Biosketch } from './Biosketch'
