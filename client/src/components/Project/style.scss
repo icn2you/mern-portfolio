@@ -101,3 +101,28 @@ div {
     }
   }
 }
+
+/*
+  NOTE: This media query represents the maximum viewport width of an
+        iPhone 11 Pro Max, which should scale nicely on most mobile phones.
+*/
+@media (max-width: 414px) {
+  div {
+    a {
+      figure {
+        background-size: calc(1020px * 0.725);
+        height: calc(375px * 0.725);
+        width: calc(500px * 0.725);
+  
+        &.photo-box {
+          background-position: calc(-5px * 0.725) calc(-5px * 0.725);
+  
+          &::after {
+            background-position: calc(-515px * 0.725) calc(-5px * 0.725);
+            background-size: calc(1020px * 0.725);
+          }
+        }
+      }
+    }
+  }
+}

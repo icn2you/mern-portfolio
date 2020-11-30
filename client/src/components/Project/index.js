@@ -8,7 +8,7 @@ This script contains the Project React component of my developer portfolio.
 ***********************************************************************/
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './images'
+import '../../data/project-images'
 import './style.scss'
 
 const Project = ({ id, title, url, repo, image, lang, tech }) => {
