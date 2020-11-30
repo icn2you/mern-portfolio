@@ -1,0 +1,20 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  11/23/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20201123
+
+This SCSS specifies the layout and style for the SiteHeader React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+
+header.site {
+  background: snorkel.$classic-blue;
+  margin-bottom: 3rem;
+
+  nav {
+    ul {
+      margin: 1rem auto;
+    }
+  }
+}
