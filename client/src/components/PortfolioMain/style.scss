@@ -1,0 +1,13 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  11/23/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20201123
+
+This SCSS specifies the layout and style for the PortfolioMain React component of my developer portfolio.
+***********************************************************************/
+@use '../../assets/styles/colors/pantone-snorkel-palette' as snorkel;
+
+main.site {
+  margin-bottom: 5rem;
+}
