@@ -25,7 +25,7 @@ const HomeFooter = () => {
               <Biosketch />
               <Quote />
             </Col>
-            <Col lg={4} className="col-md-auto align-self-center">
+            <Col lg={4} className="col-auto align-self-center">
               { socialMediaProfiles
                 ? socialMediaProfiles.map((profile, i) =>
                   <SocialMedia
