@@ -8,10 +8,11 @@ const SiteFooter = () => {
   return (
     <footer className="site text-center">
       <Container>
-        <Row className="">
-          <Col lg={12} className="col-md-auto">
-            <div className="d-flex flex-wrap
-                justify-content-sm-center justify-content-xl-between">
+        <Row className="justify-content-center">
+          <Col lg={12} className="col-auto">
+            <div className="d-flex flex-nowrap
+              flex-column align-items-start
+              flex-lg-row align-items-lg-center justify-content-lg-around">
               { socialMediaProfiles
                 ? socialMediaProfiles.map((profile, i) =>
                   <SocialMedia
