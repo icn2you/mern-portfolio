@@ -22,6 +22,8 @@ $min-font: 15px;
 $min-width: 320px;
 
 html {
+  scroll-behavior: smooth;
+
   @include tricks.fluid-type(
     $min-width, $max-width, $min-font, $max-font);
 }
@@ -52,4 +54,13 @@ h1 {
   margin: 0 0.3125rem;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  /*
+    Disable smooth scrolling when prefers-reduced-motion is enabled.
+  */  
+  html {
+		scroll-behavior: auto;
+	}
 }
