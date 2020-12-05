@@ -8,15 +8,9 @@
 
 In its [original release](https://icn2you.com/fsf-portfolio/), my developer portfolio was a static web page. After becoming enchanted with React in [The Coding Bootcamp @ UCLA Extension](https://bootcamp.uclaextension.edu/coding/online/landing/), I opted to refactor it into a SPA (single-page application) employing the [MERN stack](https://medium.com/@blockchain_simplified/what-is-mern-stack-9c867dbad302). After deployment, I saw the opportunity to improve upon it further, refactoring it into two distinct components, specifically the home page and the portfolio page. My developer portfolio is fully reponsive in modern web browsers. In the near future, I intend to add a blog.
 
-## Technologies Used
+## Core Technologies
 
-- HTML
-- Sass
-- JavaScript (ES6)
-- MongoDB
-- Express
-- React
-- Node
+![Core Technology Logos](./client/src/assets/images/project/core-tech-logos-0.5x.png)
 
 ## To-do List
 
